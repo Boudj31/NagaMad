@@ -1,12 +1,11 @@
 # NagaMad - Bourse des dechets
 
-(description du projet •••)
-(ça a l'air de fonctionner...)
+Projet Formation 
 
 ## Installation (dev)
 
 ```
-git clone https://gitlab.dawan.fr/dw2021/NagaMad.git
+git clone https://github.com/Boudj31/NagaMad
 npm install
 ```
 
