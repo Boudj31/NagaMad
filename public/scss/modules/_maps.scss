@@ -1,0 +1,11 @@
+// Maps
+//==================
+.brew-list {
+    overflow-y: scroll;
+    height: 95vh;
+    li {
+      &:hover {
+        background-color: darkgrey;
+      }
+    }
+}

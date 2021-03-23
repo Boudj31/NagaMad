@@ -1,0 +1,42 @@
+// Outils
+//==================
+@import 'tools/variables';
+@import 'tools/reset';
+@import 'tools/media-queries';
+
+
+// Generic
+//==================
+html,
+body {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background-color: var(--red);
+    margin: 60px 0;
+    padding: 30px;
+}
+
+// Modules
+//==================
+@import './modules/maps'
