@@ -99,6 +99,7 @@ th {
 }
 
 .etp {
+  font-family: NunitoBold;
   color: var(--beige);
 }
 
@@ -142,6 +143,8 @@ p {
 
 .txt{
   background-color: var(--sombre);
+  box-shadow: 1px 1px 44px 0px rgba(0,0,0,0.2);
+  border-radius: 100px;
 }
 
 /* Boutton classique */
@@ -151,8 +154,9 @@ button {
   border-radius: 15px;
   background-color: var(--orange);
   color: white;
-  padding: 1%;
-  margin: 5%;
+  padding: 15px 30px;
+  margin-top : 10%;
+  margin-bottom: 10%;
 }
 
 @media screen and (max-width: 1000px){
@@ -229,6 +233,14 @@ table, th {
 
 @media screen and (max-width: 370px){
 
+
+/* titre */
+
+  h2 {
+    font-size: 2em;
+  }
+
+
 /* Modification du tableau */
 
   th {
@@ -237,9 +249,6 @@ table, th {
     flex-direction: column;
   }
 
-  tbody {
-    display: none;
-  }
 
 /* Modification du titre */
 
@@ -252,5 +261,12 @@ table, th {
     font-size: 15px;
   }
 
+}
+
+
+@media screen and (max-width: 300px){
+  tbody {
+    display: none;
+  }
 }
 </style>

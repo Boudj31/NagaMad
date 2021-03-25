@@ -105,75 +105,76 @@ export default {
 </script>
 
 <style scoped>
-.search {
-  background: url(../assets/img/background.jpg) no-repeat;
-  background-size: cover;
-  background-position: 50% 40%;
-  width: 100%;
-  padding: 65px 0;
-}
 
-.search p {
-  text-align: center;
-  font-size: 30px;
-  margin: 30px;
-}
+  .search {
+    background: url(../assets/img/background.jpg) no-repeat;
+    background-size: cover;
+    background-position: 50% 40%;
+    width: 100%;
+    padding: 65px 0;
+  }
 
-h1 {
-  font-size: 60px;
+  .search p {
+    text-align: center;
+    font-size: 30px;
+    margin: 30px;
+  }
 
-}
+  h1 {
+    font-size: 60px;
+  }
 
-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column wrap;
-  margin-bottom: 90px;
-}
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    margin-bottom: 90px;
+  }
 
-.form-control {
-  display: flex;
-  width: 50%;
-  margin-bottom: 20px;
-}
+  .form-control {
+    display: flex;
+    width: 50%;
+    margin-bottom: 20px;
+  }
 
-form input {
-  width: 60%;
-  margin-right: 2%;
-}
+  form input {
+    width: 60%;
+    margin-right: 2%;
+  }
 
-select {
-  vertical-align: middle;
-  background: var(--white) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
-  background-size: 5%;
-  appearance: none;
-}
+  select {
+    vertical-align: middle;
+    background: var(--white) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
+    background-size: 5%;
+    appearance: none;
+  }
 
-form select {
-  width: 38%;
-}
+  form select {
+    width: 38%;
+  }
 
-form input,
-form select {
-  padding: 13px 20px;
-  border-radius: 37px;
-  border: none;
-}
+  form input,
+  form select {
+    padding: 13px 20px;
+    border-radius: 37px;
+    border: none;
+  }
 
-.btn {
-  border-radius: 13px;
-  background-color: var(--orange);
-  border: none;
-  color: var(--white);
-  padding: 15px 30px;
-  font-size: 14px;
-  margin-bottom: 90px;
-}
+  .btn {
+    border-radius: 13px;
+    background-color: var(--orange);
+    border: none;
+    color: var(--white);
+    padding: 15px 30px;
+    font-size: 14px;
+    margin-bottom: 90px;
+  }
 
-#voirAnnonce {
-  padding: 1.5% 5% 1.5% 5%;
-  font-family: NunitoRegular;
-  font-size: 15px;
-}
+  #voirAnnonce {
+    padding: 1.5% 5% 1.5% 5%;
+    font-family: NunitoRegular;
+    font-size: 15px;
+  }
+
 </style>

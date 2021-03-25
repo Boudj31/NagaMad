@@ -34,10 +34,11 @@
       </div>
     </div>
     <div class="header-bottom">
+      <i class="fa fa-chevron-circle-down" id="menu-button" aria-hidden="true" @click="down = !down"></i>
       <div class="container">
         <nav class="site-nav">
-          <ul class="menu">
-            <li class="menu-item">
+          <ul v-if="down === true" class="menu">
+            <li  class="menu-item">
               <router-link to="/">Accueil</router-link>
             </li>
             <li class="menu-item">
@@ -65,12 +66,14 @@ export default {
     switchTheme: { type: Function },
     switchFont: { type: Function }
   },
+
   data() {
     return {
       darkMode: false,
       limitPosition: 250,
       scrolled: false,
       lastPositon: 0,
+      down: true,
     }
   },
 
@@ -85,6 +88,10 @@ export default {
       this.lastPositon = window.scrollY;
     },
 
+    downsize(){
+      console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
+    },
+
     created() {
       window.addEventListener("scroll", this.handleScroll).console.log(this.scrolled);
     },
@@ -92,8 +99,19 @@ export default {
     destroyed() {
       window.removeEventListener("scroll", this.handleScroll)
     },
-  }
+
+    mounted(){
+      this.$nextTick(function () {
+        this.downsize();
+      })
+    },
+
+    },
+
 };
+
+
+
 </script>
 
 <style>
@@ -112,6 +130,7 @@ export default {
 }
 
 .flex {
+  flex-wrap: wrap;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -223,11 +242,17 @@ export default {
   background-color: var(--yellow-hover);
 }
 
+#menu-button{
+  display: none;
+  transition-duration: .5s;
+}
+
 /*==== Header Right ====*/
 .site-header .header-bottom {
   background: var(--secondary);
   padding-top: .8rem;
   padding-bottom: .8rem;
+  transition: all .5s;
 }
 
 .menu {
@@ -310,6 +335,60 @@ export default {
 .dislexic .header-right,
 .dislexic .menu > .menu-item {
   font-family: 'Open-Dyslexic Roman', sans-serif !important;
+}
+
+@media only screen and (max-width: 768px){
+  .header-bottom .site-nav .menu{
+    text-align: center;
+    flex-direction: column;
+    height: 80vh;
+    width: 100%;
+  }
+
+  .header-top .flex {
+    flex-direction: column;
+  }
+
+  .header-bottom .site-nav .menu li{
+    margin-right: 0;
+    width: 100%;
+  }
+
+  #menu-button{
+    display: block;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  #menu-button:after,
+  #menu-button:visited{
+    transform: rotate(180deg);
+  }
+
+  #menu-button:active,
+  #menu-button:before{
+    transform: rotate(-180deg);
+  }
+
+  .header-right{
+   margin-top: -2%;
+  }
+
+  .site-logo strong{
+    display: none;
+  }
+
+  .site-logo{
+    margin-bottom: 5%;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .header-right a {
+    font-size: 1em;
+  }
 }
 
 </style>
