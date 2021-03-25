@@ -1,6 +1,6 @@
 <template>
 <div id="listA">
-  <h3 id="titreIntroAnnonce" class="titre" > Trouvez la bonne annonce où vous voulez </h3>
+  <h3 id="titreIntroAnnonce" class="titre" > Trouver la bonne annonce</h3>
 
   <div class="mapList">
   <i :class="{'fa fa-globe':checked, 'fa fa-list':!checked} " aria-hidden="true" @click="checked = !checked"></i>
@@ -146,6 +146,15 @@ hr{
   margin-top : 5%;
   margin-bottom: 5%;
   opacity: 10%;
+}
+
+@media only screen and (max-width: 768px){
+
+  h3 {
+    font-size: 3em;
+    line-height: 1.5em;
+  }
+
 }
 
 </style>
