@@ -8,7 +8,7 @@
 import AnnonceItem from "../components/Annonce/AnnonceItem.vue";
 import axios from "axios";
 
-const apiURL = "http://gestdech.com/api/annonce";
+const apiURL = "http://gestdech.com/api/annonces";
 
 export default {
   components: { AnnonceItem },

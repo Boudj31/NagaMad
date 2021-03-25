@@ -85,14 +85,34 @@ export default {
       this.lastPositon = window.scrollY;
     },
 
-    created() {
-      window.addEventListener("scroll", this.handleScroll).console.log(this.scrolled);
-    },
+    /* Mettre la topbar en fixed
+    /* ---------------------------------------------------------- */
+    menuScroll() {
+      const siteHeader = document.querySelector('.header');
+      const siteTopbar = document.querySelector('.header-bottom');
+      const siteTopbar2 = document.querySelector('.header-top');
 
-    destroyed() {
-      window.removeEventListener("scroll", this.handleScroll)
+      if (window.scrollY > 105) {
+        siteTopbar.style.position = "fixed";
+        siteTopbar2.style.transform = "translateY(-105px)";
+        siteHeader.style.position = "fixed";
+        siteTopbar.style.zIndex = "10";
+      } else {
+        siteTopbar.style.position = "relative";
+        siteTopbar2.style.transform = "translateY(0px)";
+        siteTopbar.style.zIndex = "10";
+        siteHeader.style.position = "relative";
+      }
     },
-  }
+  },
+
+  created() {
+    window.addEventListener("scroll", this.menuScroll);
+  },
+
+  destroyed() {
+    window.addEventListener("scroll", this.menuScroll);
+  },
 };
 </script>
 
@@ -105,7 +125,7 @@ export default {
   left: 0; */
   display: flex;
   flex-direction: column;
-  color: var(--white);
+  color: var(--white-hf);
   width: 100%;
   z-index: 10;
   transition: all 300ms ease-in-out;
@@ -119,9 +139,11 @@ export default {
 
 .site-header .header-top {
   position: relative;
-  background: var(--primary);
+  background: var(--grisclair-hf);
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  transition: display .3s ease-in-out;
+  z-index: 12;
 }
 
 /*==== Header left ====*/
@@ -155,7 +177,7 @@ export default {
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background-color: var(--tertiary);
+  background-color: var(--sombre-hf);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,7 +200,7 @@ export default {
   width: 105px;
   padding: 13px 0;
   font-size: 20px;
-  background-color: var(--white);
+  background-color: var(--white-hf);
   border-radius: 8px;
   color: var(--dark);
   top: 80%;
@@ -201,13 +223,13 @@ export default {
   right: auto;
   top: -20%;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid var(--white);
+  border-bottom: 10px solid var(--white-hf);
   border-left: 10px solid transparent;
 }
 
 /*==== Header Right ====*/
 .header-right .btn-signup {
-  background-color: var(--yellow);
+  background-color: var(--orange-hf);
   padding: 10px 30px;
   margin-left: 120px;
   border-radius: 10px;
@@ -220,14 +242,17 @@ export default {
 }
 
 .header-right .btn-signup:hover {
-  background-color: var(--yellow-hover);
+  background-color: var(--orange-hover-hf);
 }
 
 /*==== Header Right ====*/
 .site-header .header-bottom {
-  background: var(--secondary);
+  position: relative;
+  width: 100%;
+  background: var(--beige-hf);
   padding-top: .8rem;
   padding-bottom: .8rem;
+  z-index: 10;
 }
 
 .menu {
@@ -243,7 +268,7 @@ export default {
   z-index: 1;
   padding: 1%;
   font-family: NunitoLight;
-  color: var(--sombre);
+  color: var(--sombre-hf);
   margin: 5% 10% 5% 0;
 }
 
@@ -277,7 +302,7 @@ export default {
   height: 1px;
   content: '.';
   color: transparent;
-  background: var(--grisclair);
+  background: var(--grisclair-hf);
   opacity: 0;
   z-index: -1;
   padding: 15px;
@@ -290,7 +315,7 @@ export default {
 }
 
 .header{
-  position: sticky;
+  position: relative;
 }
 
 .headroom{

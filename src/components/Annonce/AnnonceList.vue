@@ -106,7 +106,7 @@ export default {
 
 .iconA{
   margin-top: 10%;
-  gird-column: span 2;
+  grid-column: span 2;
   font-size: 35px;
 }
 
@@ -127,7 +127,7 @@ export default {
 .imglist{
   width: 250px;
   height: auto;
-  gird-column: span 6;
+  grid-column: span 6;
 }
 
 .BtnAnnonce{

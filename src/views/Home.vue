@@ -26,7 +26,7 @@ import axios from "axios";
 import CategoriesFilter from "@/components/CategoriesFilter";
 import AnnonceList from "@/components/Annonce/AnnonceList";
 
-const apiURL = "http://gestdech.com/api/annonce";
+const apiURL = "http://gestdech.com/api/annonces";
 
 export default {
 
@@ -70,6 +70,12 @@ export default {
   position: relative;
 }
 
+.light .search {
+  background: url(../assets/img/background-ligth.jpg) no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+}
+
 .search p {
   text-align: center;
   font-size: 30px;
@@ -101,7 +107,7 @@ form input {
 
 select {
   vertical-align: middle;
-  background: var(--white) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
+  background: var(--white-wb) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
   background-size: 5%;
   appearance: none;
 }
@@ -119,7 +125,7 @@ form select {
 
 .btn {
   border-radius: 13px;
-  background-color: var(--orange);
+  background-color: var(--orange-hf);
   border: none;
   color: var(--white);
   padding: 15px 30px;
