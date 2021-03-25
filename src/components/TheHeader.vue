@@ -106,6 +106,8 @@ export default {
         siteTopbar.style.zIndex = "10";
         siteHeader.style.position = "relative";
       }
+    },
+    
     downsize(){
       console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
     },
