@@ -1,9 +1,9 @@
 <template>
 <div class="main">
-  <h2 class="titre"> Quel type de déchet recherchez-vous ? </h2>
+  <h2 class="titre"> Nos catégories </h2>
 <div class="grid">
   <div  class="cat"><div class="title">Plastique</div><div id="plas" class="flou plastique"></div></div>
-  <div  class="cat"><div class="title">électronique</div><div id="elec" class="flou electrique"></div></div>
+  <div  class="cat"><div class="title">électrique</div><div id="elec" class="flou electrique"></div></div>
   <div  class="cat"><div class="title">Recyclable</div><div id="recy" class="flou recyclage"></div></div>
   <div  class="cat"><div class="title">Organique</div><div id="orga" class="flou organique"></div></div>
 </div>
@@ -81,15 +81,15 @@ name: "CategoriesFilter"
 }
 
 .flou.electrique {
-  background-image: url("../assets/img/cat/electronique.jpg") !important;
+  background-image: url("../assets/img/cat/plastique.jpg") !important;
 }
 
 .flou.recyclage {
-  background-image: url("../assets/img/cat/electronique.jpg") !important;
+  background-image: url("../assets/img/cat/plastique.jpg") !important;
 }
 
 .flou.organique {
-  background-image: url("../assets/img/cat/electronique.jpg") !important;
+  background-image: url("../assets/img/cat/plastique.jpg") !important;
 }
 
 .flou:hover{
@@ -100,15 +100,31 @@ name: "CategoriesFilter"
   p{
     font-size: 25px;
   }
+
+  .cat > .title{
+    font-size: 1em;
+  }
 }
 
 @media screen and (max-width: 780px) {
+
+  .titre {
+    font-size: 3em;
+  }
+
+
   p{
     font-size: 15px;
+  }
+
+
+  .cat > .title{
+    font-size: .8em;
   }
 }
 
 @media screen and (max-width: 575px) {
+
   .grid {
     display: block;
   }
@@ -123,9 +139,9 @@ name: "CategoriesFilter"
 }
 
 @media screen and (max-width: 400px) {
-  h2{
-    font-size: 30px;
-    line-height: 50px;
+
+  .cat > .title {
+    font-size: 20px;
   }
 }
 
