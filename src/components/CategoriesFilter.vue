@@ -44,7 +44,7 @@ name: "CategoriesFilter"
   padding: 10%;
   border: solid 1px white;
   transition: background-color 1s;
-  z-index: 100;
+  z-index: 1;
   position: inherit;
 }
 
@@ -55,7 +55,7 @@ name: "CategoriesFilter"
 .title:hover,
 .flou:hover .title:hover{
   background-color: white;
-  color: var(--orange);
+  color: var(--orange-wb);
 }
 
 .cat {
@@ -73,7 +73,6 @@ name: "CategoriesFilter"
   background-position: bottom;
   background-repeat: no-repeat;
   transition: filter 1s;
-  z-index: 0;
 }
 
 .flou.plastique {
@@ -119,7 +118,7 @@ name: "CategoriesFilter"
 
 
   .cat > .title{
-    font-size: .8em;
+    font-size: .6em;
   }
 }
 
