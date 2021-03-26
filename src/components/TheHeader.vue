@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'headroom--unpinned':scrolled}" v-on="handleScroll()" class="site-header headroom header">
+  <header class="site-header headroom header">
     <div class="header-top">
       <div class="container flex">
         <router-link to="/" class="site-logo">
@@ -28,14 +28,12 @@
         <div class="header-right">
           <a href="/login">Connexion</a>
           <a href="/register" class="btn-signup">Inscription</a>
-          <!-- <router-link :to="{name: 'login'}">Connexion</router-link> -->
-          <!-- <router-link :to="{name: 'register'}" class="btn-signup">Inscription</router-link> -->
         </div>
       </div>
     </div>
     <div class="header-bottom">
-      <i class="fa fa-chevron-circle-down" id="menu-button" aria-hidden="true" @click="down = !down"></i>
       <div class="container">
+        <i class="fa fa-chevron-circle-down" id="menu-button" aria-hidden="true" @click="down = !down"></i>
         <nav class="site-nav">
           <ul v-if="down === true" class="menu">
             <li  class="menu-item">
@@ -78,15 +76,15 @@ export default {
   },
 
   methods: {
-    handleScroll(){
-      if(this.lastPositon < window.scrollY && this.limitPosition < window.scrollY){
-        this.scrolled = true;
-      }
-      if(this.lastPositon > window.scrollY){
-        this.scrolled = false;
-      }
-      this.lastPositon = window.scrollY;
-    },
+    // handleScroll(){
+    //   if(this.lastPositon < window.scrollY && this.limitPosition < window.scrollY){
+    //     this.scrolled = true;
+    //   }
+    //   if(this.lastPositon > window.scrollY){
+    //     this.scrolled = false;
+    //   }
+    //   this.lastPositon = window.scrollY;
+    // },
 
     /* Mettre la topbar en fixed
     /* ---------------------------------------------------------- */
@@ -99,7 +97,7 @@ export default {
         siteTopbar.style.position = "fixed";
         siteTopbar2.style.transform = "translateY(-105px)";
         siteHeader.style.position = "fixed";
-        siteTopbar.style.zIndex = "10";
+        siteTopbar.style.zIndex = "90";
       } else {
         siteTopbar.style.position = "relative";
         siteTopbar2.style.transform = "translateY(0px)";
@@ -109,16 +107,25 @@ export default {
     },
     
     downsize(){
-      console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
+      if (window.innerWidth <= 768) {
+        this.down = false;
+      } else {
+        this.down = true;
+      }
+      // console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
+      console.log(this.down);
     },
   },
   
   created() {
+    this.downsize();
     window.addEventListener("scroll", this.menuScroll);
+    window.addEventListener("resize", this.downsize);
   },
 
   destroyed() {
     window.addEventListener("scroll", this.menuScroll);
+    window.addEventListener("resize", this.downsize);
   },
 };
 
@@ -358,7 +365,7 @@ export default {
   .header-bottom .site-nav .menu{
     text-align: center;
     flex-direction: column;
-    height: 80vh;
+    height: 50vh;
     width: 100%;
   }
 

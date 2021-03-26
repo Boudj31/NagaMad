@@ -206,4 +206,40 @@ button {
   margin: 5%;
 }
 
+/* Responsive */
+@media only screen and (max-width: 1098px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    max-width: 800px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media only screen and (max-width: 668px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 505px) {
+  .container {
+    max-width: 450px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    max-width: 400px;
+  }
+}
 </style>
