@@ -35,7 +35,7 @@
 
 <script>
 import AnnonceList from "../components/Annonce/AnnonceList"
-const apiURL = "http://gestdech.com/api/annonce";
+const apiURL = "http://gestdech.com/api/annonces";
 import axios from 'axios';
 
 export default {

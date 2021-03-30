@@ -10,7 +10,7 @@
 
   <div class="grille" v-for="(annonce, index) in annonces" :key="index">
     <h3 class="titleList"> • {{ annonce.title[0].value }} </h3>
-    <img :src= "annonce.field_image[0].url" class="imglist">
+    <img :src= "annonce.field_poster[0].url" class="imglist">
 
   <div v-if="checked === false">
     <Brew/>

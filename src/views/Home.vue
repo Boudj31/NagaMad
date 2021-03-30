@@ -26,7 +26,7 @@ import axios from "axios";
 import CategoriesFilter from "@/components/CategoriesFilter";
 import AnnonceList from "@/components/Annonce/AnnonceList";
 
-const apiURL = "http://gestdech.com/api/annonce";
+const apiURL = "http://gestdech.com/api/annonces";
 
 export default {
 
