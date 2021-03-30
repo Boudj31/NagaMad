@@ -43,11 +43,13 @@
 </template>
 
 <script>
+
 import AnnonceList from "../components/Annonce/AnnonceList";
 import Description from '../components/Annonce/Description.vue';
 import axios from "axios";
 
-const apiURL = "http://gestdech.com/api/annonce";
+const apiURL = "http://gestdech.com/api/annonces";
+
 
 export default {
   components: { AnnonceList, Description },

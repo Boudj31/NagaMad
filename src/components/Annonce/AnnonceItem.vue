@@ -1,7 +1,7 @@
 <template>
   <div class="article">
     <article id="grid" class="annonce">
-     <img :src= "ann.field_image[0].href" alt="Annonce" />
+     <img :src= "ann.field_poster.url" alt="Annonce" />
       <div class="overlay">
         <h4>{{ ann.title[0].value }}</h4>
         <p>{{ ann.field_content[0].value }}</p>

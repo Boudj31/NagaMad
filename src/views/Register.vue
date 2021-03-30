@@ -70,42 +70,34 @@ export default {
         },
         'name': [
           {
-            'value': "new user"
+            'value': this.name
           }
         ],
         'mail': [
           {
-            'value': "user@mail.fr"
+            'value': this.email
           }
         ],
         'pass': [
           {
-            'value': "12345"
-          }
-        ],
-        'status': [
-          {
-            'value': '1'
-          }
-        ],
-        'roles': [
-          {
-            'target_id': 'administrator'
+            'value': this.password
           }
         ]
       }
 
-      const response = await axios.post('https://gestdech.com/user/register', data, {
+      const response = await axios.post('https://gestdech.com/user/register?_format=hal_json', data, {
         headers: {
           "Accept": 'application/hal+json',
           "Authorization": "Basic TUFEOmRhd2FuMzFA",
           "Content-Type": "application/hal+json",
           "X-CSRF-Token": "Qx9O-xm02Y6xsqnZRTKweN2LoUTTM42zlzsSw-LMI-g",
         },
-      });
+     });
+      //axios.defaults.withCredentials = true;
       console.log(JSON.stringify(response));
-
+       this.$router.push('/login');
     }
+
   }
 }
 </script>
