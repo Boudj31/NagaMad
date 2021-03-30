@@ -1,7 +1,9 @@
 <template>
   <div class="header-bottom header">
     <div class="container">
-      <nav class="site-nav">
+      <i class="far fa-arrow-alt-circle-left" @click="back()" style="font-size: 35px;cursor: pointer;"></i>
+      <!-- <button @click="back()"><i class="far fa-arrow-alt-circle-left"></i></button> -->
+      <!-- <nav class="site-nav">
         <ul class="menu2">
           <li class="menu2-item">
             <router-link to="/">Accueil</router-link>
@@ -16,14 +18,19 @@
             <router-link to="/annonce/1">Qui-Sommes-Nous ?</router-link>
           </li>
         </ul>
-      </nav>
+      </nav> -->
     </div>
   </div>
 </template>
 
 <script>
 export default {
-name: "TheHeader2"
+  name: "TheHeader2",
+  methods: {
+    back() {
+      this.$router.go(-1);
+    }
+  },
 }
 </script>
 

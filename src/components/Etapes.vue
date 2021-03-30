@@ -53,7 +53,7 @@ export default {
   height: 46px;
   top: calc(25.6% - 50px);
   position: absolute;
-  background-color: var(--sombre);
+  background-color: var(--sombre-wb);
 }
 
 #etape::before {
@@ -79,7 +79,7 @@ table {
   width: 100%;
   text-align: center;
   padding: 0% 10% 10% 10%;
-  background-color: var(--sombre);
+  background-color: var(--sombre-wb);
   z-index: 1;
 }
 
@@ -89,7 +89,7 @@ table {
 
 th {
   font-family: NunitoExtraLight;
-  color: white;
+  color: var(--white-wb);
   width: 10%;
   font-size: 18px;
 }
@@ -99,7 +99,8 @@ th {
 }
 
 .etp {
-  color: var(--beige);
+  color: var(--beige-wb);
+  font-family: NunitoBold;
 }
 
 /* Format des images */
@@ -137,11 +138,13 @@ p {
   max-width: 75%;
   text-align: left;
   margin-left: 15%;
-  color: white;
+  color: var(--white-wb);
 }
 
 .txt{
-  background-color: var(--sombre);
+  background-color: var(--sombre-wb);
+  box-shadow: 1px 1px 44px 0px rgba(0,0,0,0.2);
+  border-radius: 100px;
 }
 
 /* Boutton classique */
@@ -149,10 +152,11 @@ p {
 button {
   border: none;
   border-radius: 15px;
-  background-color: var(--orange);
+  background-color: var(--orange-wb);
   color: white;
-  padding: 1%;
-  margin: 5%;
+  padding: 15px 30px;
+  margin-top : 10%;
+  margin-bottom: 10%;
 }
 
 @media screen and (max-width: 1000px){
@@ -229,6 +233,14 @@ table, th {
 
 @media screen and (max-width: 370px){
 
+
+/* titre */
+
+  h2 {
+    font-size: 2em;
+  }
+
+
 /* Modification du tableau */
 
   th {
@@ -237,9 +249,6 @@ table, th {
     flex-direction: column;
   }
 
-  tbody {
-    display: none;
-  }
 
 /* Modification du titre */
 
@@ -252,5 +261,12 @@ table, th {
     font-size: 15px;
   }
 
+}
+
+
+@media screen and (max-width: 300px){
+  tbody {
+    display: none;
+  }
 }
 </style>
