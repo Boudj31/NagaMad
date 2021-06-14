@@ -85,7 +85,7 @@ export default {
         ]
       }
 
-      const response = await axios.post('https://gestdech.com/user/register?_format=hal_json', data, {
+       await axios.post('https://gestdech.com/user/register?_format=hal_json', data, {
         headers: {
           "Accept": 'application/hal+json',
           "Authorization": "Basic TUFEOmRhd2FuMzFA",
@@ -94,7 +94,7 @@ export default {
         },
      });
       //axios.defaults.withCredentials = true;
-      console.log(JSON.stringify(response));
+      //console.log(JSON.stringify(response));
        this.$router.push('/login');
     }
 

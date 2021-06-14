@@ -42,7 +42,8 @@
 
 <script>
 import axios from "axios";
-const apiURL = "http://gestdech.com/api/users";
+const apiURL = "http://gestdech.com/user/login?";
+
 
 export default {
   name: "User",
@@ -60,16 +61,17 @@ export default {
         email: this.email,
         password: this.password
       };
-    await axios.post(apiURL, data)
-      .then(
-          res => {
-         console.log(res)
-          }
-      ).catch(
-          err => {
-            console.log(err)
-          }
-      )
+   const response =  await axios.post(apiURL, data, {
+     headers: {
+       "Accept": 'application/hal+json',
+       "Authorization": "Basic TUFEOmRhd2FuMzFA",
+       "Content-Type": "application/hal+json",
+       "X-CSRF-Token": "Qx9O-xm02Y6xsqnZRTKweN2LoUTTM42zlzsSw-LMI-g",
+     },
+   });
+    console.log(response);
+    localStorage.setItem('http://gestdech.com/rest/session/token', response.data.token);
+
     }
   }
 }
