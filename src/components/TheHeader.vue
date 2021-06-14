@@ -25,9 +25,16 @@
             </ul>
           </div>
         </router-link>
-        <div class="header-right">
+        <div class="header-right" v-if="!user">
+
           <a href="/login">Connexion</a>
           <a href="/register" class="btn-signup">Inscription</a>
+          <!-- <router-link :to="{name: 'login'}">Connexion</router-link> -->
+          <!-- <router-link :to="{name: 'register'}" class="btn-signup">Inscription</router-link> -->
+        </div>
+        <div class="header-right" v-if="user">
+
+          <a href="/login" @click="handleClick()">Déconnexion</a>
           <!-- <router-link :to="{name: 'login'}">Connexion</router-link> -->
           <!-- <router-link :to="{name: 'register'}" class="btn-signup">Inscription</router-link> -->
         </div>
@@ -60,10 +67,11 @@
 export default {
   name: "TheHeader",
   props: {
+    user: null,
     mode: String,
     font: String,
     switchTheme: { type: Function },
-    switchFont: { type: Function }
+    switchFont: { type: Function },
   },
   data() {
     return {
@@ -83,6 +91,11 @@ export default {
         this.scrolled = false;
       }
       this.lastPositon = window.scrollY;
+    },
+
+    handleClick() {
+      localStorage.removeItem('http://gestdech.com/rest/session/token');
+      this.$router.push('/');
     },
 
     created() {

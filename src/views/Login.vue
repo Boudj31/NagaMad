@@ -71,6 +71,7 @@ export default {
    });
     console.log(response);
     localStorage.setItem('http://gestdech.com/rest/session/token', response.data.token);
+    this.$router.push('/profil');
 
     }
   }

@@ -9,27 +9,11 @@
 
 <script>
 
-import axios from "axios";
-const apiURL = "http://gestdech.com/api/users";
 
 export default {
   name: "Profil",
-  data() {
-    return {
-      user: null
-    }
+  props: ['user']
 
-
-  },
-  async created() {
-    const response = await axios.get(apiURL, {
-    headers: {
-      Authorization: 'Bearer' + localStorage.getItem("http://gestdech.com/rest/session/token")
-    }
-    });
-    this.user = response.data;
-    console.log(response);
-  }
 }
 </script>
 

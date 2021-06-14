@@ -1,9 +1,9 @@
 <template>
   <div id="app" :class="[font, mode]">
-    <The-header v-if="urlHeader" :mode="mode" :font="font" :switchTheme="switchTheme" :switchFont="switchFont"></The-header>
+    <The-header v-if="urlHeader" :mode="mode" :font="font" :switchTheme="switchTheme" :switchFont="switchFont" :user="user" />
     <TheHeader2 v-else></TheHeader2>
     <div class="content">
-      <Router-view></Router-view>
+      <Router-view :user="user"></Router-view>
     </div>
     <The-footer v-if="urlHeader"></The-footer>
   </div>
@@ -14,6 +14,8 @@ import "../public/scss/style.css";
 import TheFooter from "./components/Footer/TheFooter.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheHeader2 from "@/components/TheHeader2";
+import axios from "axios";
+const apiURL = "http://gestdech.com/api/users";
 
 
 export default {
@@ -27,9 +29,11 @@ export default {
     return {
       urlHeader: true,
       mode: 'dark',
-      font: ''
+      font: '',
+      user: null
     }
   },
+
   methods: {
     urlDisplay() {
       const currentUrl = window.location.pathname;
@@ -57,11 +61,22 @@ export default {
       }
     }
   },
-  created() {
+  async created() {
+    //user
+    const response = await axios.get(apiURL, {
+      headers: {
+        Authorization: 'Bearer' + localStorage.getItem("http://gestdech.com/rest/session/token")
+      }
+    });
+    this.user = response.data;
+    console.log(response);
+    //mode night
     this.urlDisplay();
     this.mode = JSON.parse(localStorage.getItem("currentTheme"));
     this.font = JSON.parse(localStorage.getItem("currentFont"));
+
   },
+
 };
 </script>
 
