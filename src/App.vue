@@ -1,9 +1,9 @@
 <template>
   <div id="app" :class="[font, mode]">
-    <The-header v-if="urlHeader" :mode="mode" :font="font" :switchTheme="switchTheme" :switchFont="switchFont" :user="user" />
+    <The-header v-if="urlHeader" :mode="mode" :font="font" :switchTheme="switchTheme" :switchFont="switchFont"  />
     <TheHeader2 v-else></TheHeader2>
     <div class="content">
-      <Router-view :user="user"></Router-view>
+      <Router-view></Router-view>
     </div>
     <The-footer v-if="urlHeader"></The-footer>
   </div>
@@ -30,7 +30,6 @@ export default {
       urlHeader: true,
       mode: 'dark',
       font: '',
-      user: null
     }
   },
 
@@ -68,8 +67,7 @@ export default {
         Authorization: 'Bearer' + localStorage.getItem("http://gestdech.com/rest/session/token")
       }
     });
-    this.user = response.data;
-    console.log(response);
+    this.$store.dispatch('user', response.data);
     //mode night
     this.urlDisplay();
     this.mode = JSON.parse(localStorage.getItem("currentTheme"));

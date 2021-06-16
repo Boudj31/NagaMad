@@ -64,10 +64,10 @@
 </template>
 
 <script>
+import  {mapGetters} from 'vuex';
 export default {
   name: "TheHeader",
   props: {
-    user: null,
     mode: String,
     font: String,
     switchTheme: { type: Function },
@@ -80,6 +80,10 @@ export default {
       scrolled: false,
       lastPositon: 0,
     }
+  },
+
+  computed: {
+    ...mapGetters(['user'])
   },
 
   methods: {

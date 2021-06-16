@@ -35,7 +35,7 @@
 
 <script>
 import AnnonceList from "../components/Annonce/AnnonceList"
-const apiURL = "http://gestdech.com/api/annonces";
+const apiURL = "http://127.0.0.1:8000/api/annonces";
 import axios from 'axios';
 
 export default {
@@ -53,7 +53,8 @@ export default {
       axios
           .get(apiURL)
           .then((res) => {
-            this.annonces = res.data;
+            this.annonces = res.data['hydra:member'];
+            console.log(res.data['hydra:member']);
           })
           .catch((err) => {
             console.log(err);
@@ -71,7 +72,7 @@ export default {
 
       if (searchGenre > 0) {
         const filterGenre = this.annonces.filter((annonce) => {
-          return annonce.field_category[0].value.match(this.genreFilter);
+          return annonce.categorie.match(this.genreFilter);
         });
         annonceAll = filterGenre;
       }
@@ -79,10 +80,10 @@ export default {
       if (searchInput > 0) {
         const filterSearch = annonceAll.filter((annonce) => {
           return (
-              annonce.title[0].value
+              annonce.title
                   .toLowerCase()
                   .match(this.search.toLowerCase()) ||
-              annonce.field_category[0].value
+              annonce.categorie
                   .match(this.search.toLowerCase())
           );
         });

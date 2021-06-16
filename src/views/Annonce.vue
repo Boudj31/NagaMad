@@ -8,7 +8,7 @@
 import AnnonceItem from "../components/Annonce/AnnonceItem.vue";
 import axios from "axios";
 
-const apiURL = "http://gestdech.com/api/annonces";
+const apiURL = "http://127.0.0.1:8000/api/annonces";
 
 export default {
   components: { AnnonceItem },
@@ -23,7 +23,8 @@ export default {
     getTheAnnonce: function () {
       axios.get(apiURL + "/" + this.idAnnonce)
         .then((res) => {
-          this.annonce = res.data;
+          this.annonce = JSON.stringify(res.data);
+         // console.log(JSON.stringify(res.data));
         })
         .catch((err) => console.log(err));
     },
