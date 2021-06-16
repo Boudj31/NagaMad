@@ -2,16 +2,21 @@
   <div class="footer-top">
     <router-link to="/" class="site-logo">
       <img src="../../assets/logo.svg" alt="Logo" />
-      <strong>Naga Wasted</strong>
+      <strong>{{ $t('web-title') }}</strong>
     </router-link>
     <div class="footer-lang">
-      <div class="switch-lang">
+      <!-- <div class="switch-lang">
         <span>Fr</span>
         <i class="fas fa-sort-down"></i>
       </div>
       <ul class="list-lang">
-        <li class="lang">En</li>
-      </ul>
+        <li class="lang" @click="switchLang(event)">En</li>
+      </ul> -->
+      <select v-model="lang" @change="switchLang($event)" class="switch-lang yellow">
+        <option value="fr">Fr</option>
+        <option value="en">En</option>
+        <option value="es">Es</option>
+      </select>
     </div>
   </div>
 </template>
@@ -19,6 +24,17 @@
 <script>
 export default {
     name: 'FooterLang',
+    data() {
+      return {
+        lang: localStorage.getItem('lang')
+      }
+    },
+    methods: {
+      switchLang(event) {
+        localStorage.setItem("lang", event.target.value);
+        window.location.reload();
+      }
+    },
 };
 </script>
 
@@ -53,12 +69,17 @@ export default {
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;
-  background-color: var(--yellow);
+  background: none transparent;
+  border: 0 none;
   color: var(--dark);
-  padding: 15px 20px;
+  padding: 10px 15px;
 }
 
-.list-lang {
+.yellow {
+  background-color: var(--yellow);
+}
+
+/* .list-lang {
   position: absolute;
   display: flex;
   align-items: center;
@@ -76,5 +97,5 @@ export default {
   transition: all 0.3s cubic-bezier(0.25, 1.15, 0.35, 1.15);
   visibility: hidden;
   z-index: 12;
-}
+} */
 </style>

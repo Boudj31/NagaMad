@@ -65,10 +65,7 @@ export default {
 </script>
 
 <style scoped>
-
-
-
-  .search {
+.search {
   background: url(../assets/img/nbackground.jpg) no-repeat 70% 40%;
   background-size: cover;
   width: 100%;
