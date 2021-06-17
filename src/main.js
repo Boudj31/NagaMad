@@ -1,10 +1,11 @@
 
 import Vue from 'vue';
-import axios from "axios";
 import App from './App.vue';
 import router from './routes';
 import i18n from './i18n';
-import 'leaflet/dist/leaflet.css';
+import store from './vuex'
+import './axios';
+//import 'leaflet/dist/leaflet.css';
 
 
 Vue.config.productionTip = false
