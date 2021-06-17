@@ -24,11 +24,21 @@
         "2": "Busque o publique su anuncio. ",
         "3": "Toma contacto. ",
         "4": "¡Toma o dona tus desechos! ",
-        "titre": "La bolsa de basura?  ",
+        "titre": "¿ La bolsa de basura ?",
         "desrciption": "Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
         "btn-title": "Más información "
     },
     "annonces": {
-        "titre": "Encuentra el anuncio adecuado"
+        "titre": "Encuentra el anuncio adecuado",
+        "alert": "Por favor Iniciar sesión"
+    },
+    "login": {
+        "title": "Conexión",
+        "inscription": "Registro",
+        "mdp-oublie": "¿ Contraseña olvidada ?",
+        "id-oublie": "¿ Nombre de usuario olvidada ?",
+        "mdp": "Contraseña",
+        "id": "Correo electrónico",
+        "id-placeholder": "Correo electrónico"
     }
 }

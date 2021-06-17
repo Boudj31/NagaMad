@@ -37,7 +37,7 @@
           <a :href="'tel:'+ann.field_phone[0].value ">{{ ann.field_phone[0].value }}</a>
         </div>
       </div>
-      <div class="alert" v-else>Veuillez vous connecter</div>
+      <div class="alert" v-else>{{ $t('annonces.alert')}}</div>
     </div>
   </div>
 </template>

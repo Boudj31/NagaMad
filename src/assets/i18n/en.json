@@ -29,6 +29,16 @@
         "btn-title": "Find out more "
     },
     "annonces": {
-        "titre": "Find the right ad "
+        "titre": "Find the right ad",
+        "alert": "Please log in"
+    },
+    "login": {
+        "title": "Log in",
+        "inscription": "Sign in",
+        "mdp-oublie": "Forgot password ?",
+        "id-oublie": "Forgot email ?",
+        "mdp": "Password",
+        "id": "Email address",
+        "id-placeholder": "Email address"
     }
 }

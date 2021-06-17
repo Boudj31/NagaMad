@@ -29,6 +29,16 @@
         "btn-title": "En savoir plus"
     },
     "annonces": {
-        "titre": "Trouver la bonne annonce"
+        "titre": "Trouver la bonne annonce",
+        "alert": "Veuillez vous connecter"
+    },
+    "login": {
+        "title": "Connexion",
+        "inscription": "S'inscrire",
+        "mdp-oublie": "Mot de passe oublié ?",
+        "id-oublie": "Identifiant oublié ?",
+        "mdp": "Mot de passe",
+        "id": "Identifiant",
+        "id-placeholder": "Identifiant"
     }
 }
