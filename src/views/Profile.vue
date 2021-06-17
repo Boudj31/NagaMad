@@ -51,8 +51,16 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
-  name: "Profile"
+  name: "Profile",
+  computed: {
+    ...mapGetters(['user'])
+  },
+  created() {
+    console.log(this.user);
+  }
 }
 </script>
 

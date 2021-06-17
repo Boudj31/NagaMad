@@ -16,7 +16,7 @@
     <div class="form">
 
       <label>{{ $t('login.id')}}</label>
-      <input type="text" placeholder="Enter Email" v-model="email">
+      <input type="text" placeholder="Enter Email" v-model="username">
       <a> {{ $t('login.id-oublie')}}</a>
 
       <label>{{ $t('login.mdp')}}</label>
@@ -67,7 +67,7 @@ export default {
     console.log(response);
     localStorage.setItem('token', response.data.token);
     await this.$store.dispatch('user', response.data.user)
-    this.$router.push('/profil');
+    this.$router.push('/profile');
 
     }
   }

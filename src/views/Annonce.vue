@@ -21,9 +21,9 @@ export default {
   },
   methods: {
     getTheAnnonce: function () {
-      axios.get( "annonces/" + this.idAnnonce)
+      axios.get( 'annonces' + '/' + this.idAnnonce)
         .then((res) => {
-          this.annonce = JSON.stringify(res.data);
+          this.annonce = (res.data);
          // console.log(JSON.stringify(res.data));
         })
         .catch((err) => console.log(err));

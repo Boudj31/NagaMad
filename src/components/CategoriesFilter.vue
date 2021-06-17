@@ -15,28 +15,6 @@
 </div>
 </div>
 
-  <div class="main">
-    <h2 class="titre">{{ $t("categorie.titre") }}</h2>
-    <div class="grid">
-      <div class="cat">
-        <div class="title">{{ $t("categorie.plastique") }}</div>
-        <div id="plas" class="flou plastique"></div>
-      </div>
-      <div class="cat">
-        <div class="title">{{ $t("categorie.electrique") }}</div>
-        <div id="elec" class="flou electrique"></div>
-      </div>
-      <div class="cat">
-        <div class="title">{{ $t("categorie.recyclable") }}</div>
-        <div id="recy" class="flou recyclage"></div>
-      </div>
-      <div class="cat">
-        <div class="title">{{ $t("categorie.organique") }}</div>
-        <div id="orga" class="flou organique"></div>
-      </div>
-    </div>
-  </div>
-
 </template>
 
 <script>
@@ -49,9 +27,6 @@ name: "CategoriesFilter",
    flou: false,
   }
   },
-}
-=======
-  name: "CategoriesFilter",
 };
 
 </script>
@@ -96,13 +71,12 @@ name: "CategoriesFilter",
   font-family: "Open-Dyslexic Roman", sans-serif !important;
 }
 
-.title:hover,
-
-.flou:hover .title:hover{
-  background-color: rgba(242,190,121,.7);
+.title:hover, .flou:hover .title:hover {
+  background-color: rgba(242, 190, 121, .7);
   color: var(--white-hf);
+}
 
-.flou:hover .title:hover {
+.flou:hover , .title:hover {
   background-color: white;
   color: var(--orange-wb);
 

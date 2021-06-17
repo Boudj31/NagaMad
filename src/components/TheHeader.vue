@@ -26,12 +26,11 @@
           </div>
         </router-link>
 
-        <div class="header-right">
+        <div class="header-right" v-if="!user">
           <a href="/login">{{ $t('header.connexion') }}</a>
           <a href="/register" class="btn-signup">{{ $t('header.inscription') }}</a>
         </div>
         <div class="header-right" v-if="user">
-
           <a href="/login" @click="handleClick()">Déconnexion</a>
           <!-- <router-link :to="{name: 'login'}">Connexion</router-link> -->
           <!-- <router-link :to="{name: 'register'}" class="btn-signup">Inscription</router-link> -->
