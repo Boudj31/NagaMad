@@ -11,20 +11,23 @@
 
       <div class="form">
       <label>Fistname</label>
-      <input type="text" placeholder="Enter Firstname" v-model="name">
+      <input type="text" placeholder="Enter Firstname" v-model="fistname">
 
-   <!--  <label>Lastname</label>
-      <input type="text" placeholder="Enter lastname" >
-    -->
+     <label>Lastname</label>
+      <input type="text" placeholder="Enter lastname" v-model="lastname" >
+
       <label>Email</label>
       <input type="text" placeholder="Enter Email" v-model="email">
+
+        <label>Pseudo</label>
+        <input type="text" placeholder="Enter Pseudo" v-model="username">
 
       <label>Password</label>
       <input type="password" placeholder="Enter Password" v-model="password">
 
-    <!--  <label>Repeat Password</label>
-      <input type="password" placeholder="Repeat Password" >
-      -->
+      <label>Phone</label>
+      <input type="text" placeholder="Enter Phone"  v-model="phone">
+
 
 
       <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
@@ -54,58 +57,30 @@ export default {
   name: "Register",
   data() {
     return {
-      name: '',
+      fistname: '',
+      lastname: '',
+      phone: '',
       email: '',
       password: '',
+      username: '',
     }
 
   },
   methods: {
      async handleSubmit() {
       const data = {
-        '_links': {
-          'type': {
-            'href': 'https://gestdech.com/rest/type/user/user'
-          }
-        },
-        'name': [
-          {
-            'value': "new user"
-          }
-        ],
-        'mail': [
-          {
-            'value': "user@mail.fr"
-          }
-        ],
-        'pass': [
-          {
-            'value': "12345"
-          }
-        ],
-        'status': [
-          {
-            'value': '1'
-          }
-        ],
-        'roles': [
-          {
-            'target_id': 'administrator'
-          }
-        ]
+        fistname : this.fistname,
+        lastname : this.lastname,
+        password: this.password,
+        email: this.email,
+        phone: this.phone,
+        username: this.username
       }
 
-      const response = await axios.post('https://gestdech.com/user/register', data, {
-        headers: {
-          "Accept": 'application/hal+json',
-          "Authorization": "Basic TUFEOmRhd2FuMzFA",
-          "Content-Type": "application/hal+json",
-          "X-CSRF-Token": "Qx9O-xm02Y6xsqnZRTKweN2LoUTTM42zlzsSw-LMI-g",
-        },
-      });
-      console.log(JSON.stringify(response));
-
+       await axios.post('users', data,)
+       this.$router.push('/login');
     }
+
   }
 }
 </script>
@@ -271,7 +246,7 @@ export default {
 
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 930px) {
 
   .hautDePage{
     margin: 28% 0 20% 0;

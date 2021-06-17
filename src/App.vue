@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="[font, mode]">
-    <The-header v-if="urlHeader" :mode="mode" :font="font" :switchTheme="switchTheme" :switchFont="switchFont"></The-header>
+    <The-header v-if="urlHeader" :mode="mode" :font="font" :switchTheme="switchTheme" :switchFont="switchFont"  />
     <TheHeader2 v-else></TheHeader2>
     <div class="content">
       <Router-view></Router-view>
@@ -14,7 +14,7 @@ import "../public/scss/style.css";
 import TheFooter from "./components/Footer/TheFooter.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheHeader2 from "@/components/TheHeader2";
-
+import axios from "axios";
 
 export default {
   name: "App",
@@ -27,9 +27,10 @@ export default {
     return {
       urlHeader: true,
       mode: 'dark',
-      font: ''
+      font: '',
     }
   },
+
   methods: {
     urlDisplay() {
       const currentUrl = window.location.pathname;
@@ -38,7 +39,8 @@ export default {
       }
       return this.urlHeader = true;
     },
-    switchTheme() { // Fonction darkMode
+    switchTheme(event) { // Fonction darkMode
+      event.preventDefault();
       if (this.mode === 'dark') {
         this.mode = 'light';
         localStorage.setItem("currentTheme", JSON.stringify(this.mode));
@@ -47,7 +49,8 @@ export default {
         localStorage.setItem("currentTheme", JSON.stringify(this.mode));
       }
     },
-    switchFont() { // Fonction Open Dyslexic
+    switchFont(event) { // Fonction Open Dyslexic
+      event.preventDefault();
       if (this.font === 'dislexic') {
         this.font = '';
         localStorage.setItem("currentFont", JSON.stringify(this.font));
@@ -57,11 +60,19 @@ export default {
       }
     }
   },
-  created() {
+  async created() {
+    //user
+    const response = await axios.get('users');
+    //console.log(response.data)
+    this.$store.dispatch('user', response.data['hydra:member']);
+
+    //mode night
     this.urlDisplay();
     this.mode = JSON.parse(localStorage.getItem("currentTheme"));
     this.font = JSON.parse(localStorage.getItem("currentFont"));
+
   },
+
 };
 </script>
 
@@ -206,4 +217,40 @@ button {
   margin: 5%;
 }
 
+/* Responsive */
+@media only screen and (max-width: 1098px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    max-width: 800px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media only screen and (max-width: 668px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 505px) {
+  .container {
+    max-width: 450px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    max-width: 400px;
+  }
+}
 </style>

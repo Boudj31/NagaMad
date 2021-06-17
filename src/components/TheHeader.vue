@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'headroom--unpinned':scrolled}" v-on="handleScroll()" class="site-header headroom header">
+  <header class="site-header headroom header">
     <div class="header-top">
       <div class="container flex">
         <router-link to="/" class="site-logo">
@@ -25,31 +25,39 @@
             </ul>
           </div>
         </router-link>
+
         <div class="header-right">
-          <a href="/login">Connexion</a>
-          <a href="/register" class="btn-signup">Inscription</a>
+          <a href="/login">{{ $t('header.connexion') }}</a>
+          <a href="/register" class="btn-signup">{{ $t('header.inscription') }}</a>
+        </div>
+        <div class="header-right" v-if="user">
+
+          <a href="/login" @click="handleClick()">Déconnexion</a>
           <!-- <router-link :to="{name: 'login'}">Connexion</router-link> -->
           <!-- <router-link :to="{name: 'register'}" class="btn-signup">Inscription</router-link> -->
         </div>
       </div>
     </div>
+
     <div class="header-bottom" >
       <i :class="{'fa fa-chevron-circle-down arrow-down':down, 'fa fa-chevron-circle-down arrow-up':!down }"
          id="menu-button" aria-hidden="true"  @click="down = !down" ></i>
+
       <div class="container">
+        <i class="fa fa-chevron-circle-down" id="menu-button" aria-hidden="true" @click="down = !down"></i>
         <nav class="site-nav">
           <ul v-if="down === true" class="menu">
             <li  class="menu-item">
-              <router-link to="/">Accueil</router-link>
+              <router-link to="/">{{ $t('header.accueil') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/result">Annonces</router-link>
+              <router-link to="/result">{{ $t('header.annonces') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/contacts">Contacts</router-link>
+              <router-link to="/contacts">{{ $t('header.contacts') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/annonce/1">Qui-Sommes-Nous ?</router-link>
+              <router-link to="/annonce/1">{{ $t('header.qsn') }}</router-link>
             </li>
             <li class="menu-item mobile">
               <a href="/login">Connexion</a>
@@ -65,13 +73,14 @@
 </template>
 
 <script>
+import  {mapGetters} from 'vuex';
 export default {
   name: "TheHeader",
   props: {
     mode: String,
     font: String,
     switchTheme: { type: Function },
-    switchFont: { type: Function }
+    switchFont: { type: Function },
   },
 
   data() {
@@ -85,16 +94,20 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters(['user'])
+  },
+
   methods: {
-    handleScroll(){
-      if(this.lastPositon < window.scrollY && this.limitPosition < window.scrollY){
-        this.scrolled = true;
-      }
-      if(this.lastPositon > window.scrollY){
-        this.scrolled = false;
-      }
-      this.lastPositon = window.scrollY;
-    },
+    // handleScroll(){
+    //   if(this.lastPositon < window.scrollY && this.limitPosition < window.scrollY){
+    //     this.scrolled = true;
+    //   }
+    //   if(this.lastPositon > window.scrollY){
+    //     this.scrolled = false;
+    //   }
+    //   this.lastPositon = window.scrollY;
+    // },
 
     /* Mettre la topbar en fixed
     /* ---------------------------------------------------------- */
@@ -107,6 +120,7 @@ export default {
         siteTopbar.style.position = "fixed";
         siteTopbar2.style.transform = "translateY(-105px)";
         siteHeader.style.position = "fixed";
+
         siteTopbar.style.zIndex = "10";
 
         if(window.innerWidth <= 768){
@@ -115,6 +129,7 @@ export default {
         }
       }
       else {
+        siteTopbar.style.zIndex = "90";
         siteTopbar.style.position = "relative";
         siteTopbar2.style.transform = "translateY(0px)";
         siteTopbar2.style.position = "relative";
@@ -140,29 +155,50 @@ export default {
       return;
     },
 
+
     reverseDown(){
       if(window.innerWidth <= 768 ) {
         this.down = false;}
     },
 
 
+    handleClick() {
+      localStorage.removeItem('token');
+      this.$router.push('/');
+    },
+
 
     downsize(){
-      console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
+      if (window.innerWidth <= 768) {
+        this.down = false;
+      } else {
+        this.down = true;
+      }
+      // console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
+      console.log(this.down);
     },
   },
 
 
   created() {
+    this.downsize();
     window.addEventListener("scroll", this.menuScroll);
+
     window.addEventListener("resize", this.responsiveDown);
     document.addEventListener("DOMContentLoaded", this.reverseDown);
+
+    window.addEventListener("resize", this.downsize);
+
   },
 
   destroyed() {
     window.addEventListener("scroll", this.menuScroll);
+
     window.addEventListener("resize", this.responsiveDown);
     document.addEventListener("DOMContentLoaded", this.reverseDown);
+
+    window.addEventListener("resize", this.downsize);
+
   },
 
 
@@ -416,7 +452,7 @@ export default {
     text-align: center;
     flex-direction: column;
     height: 100vh;
-
+    width: 100%;
   }
 
   .header-top .flex {

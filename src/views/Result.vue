@@ -43,11 +43,9 @@
 </template>
 
 <script>
-import AnnonceList from "../components/Annonce/AnnonceList";
+import AnnonceList from "../components/Annonce/AnnonceList"
 import Description from '../components/Annonce/Description.vue';
 import axios from "axios";
-
-const apiURL = "http://gestdech.com/api/annonce";
 
 export default {
   components: { AnnonceList, Description },
@@ -62,16 +60,18 @@ export default {
   methods: {
     getAnnonce() {
       axios
-        .get(apiURL)
-        .then((res) => {
-          this.annonces = res.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+          .get('annonces')
+          .then((res) => {
+            this.annonces = res.data['hydra:member'];
+            console.log(res.data['hydra:member']);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+    }
+
   },
-  //helloooo
   computed: {
     filterAnnonce() {
       let annonceAll = [...this.annonces];
@@ -80,7 +80,7 @@ export default {
 
       if (searchGenre > 0) {
         const filterGenre = this.annonces.filter((annonce) => {
-          return annonce.field_category[0].value.match(this.genreFilter);
+          return annonce.categorie.match(this.genreFilter);
         });
         annonceAll = filterGenre;
       }
@@ -88,10 +88,11 @@ export default {
       if (searchInput > 0) {
         const filterSearch = annonceAll.filter((annonce) => {
           return (
-            annonce.title[0].value
-              .toLowerCase()
-              .match(this.search.toLowerCase()) ||
-            annonce.field_category[0].value.match(this.search.toLowerCase())
+              annonce.title
+                  .toLowerCase()
+                  .match(this.search.toLowerCase()) ||
+              annonce.categorie
+                  .match(this.search.toLowerCase())
           );
         });
 

@@ -2,29 +2,43 @@
   <div id="etape">
     <table>
       <thead>
-      <tr>
-          <th> <span class="titre etp"> 1. </span> Inscrivez-vous ou <br> connectez-vous.</th>
-          <th> <span class="titre etp"> 2. </span> Recherchez ou <br> Postez votre annonce.</th>
-          <th> <span class="titre etp"> 3. </span> Prenez Contact.</th>
-          <th> <span class="titre etp"> 4. </span> Prenez ou <br> Donnez vos Déchets !</th>
-      </tr>
+        <tr>
+          <th><span class="titre etp"> 1. </span> {{ $t('etapes.1') }}</th>
+          <th><span class="titre etp"> 2. </span> {{ $t('etapes.2') }}</th>
+          <th><span class="titre etp"> 3. </span> {{ $t('etapes.3') }}</th>
+          <th><span class="titre etp"> 4. </span> {{ $t('etapes.4') }}</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <td> <img src="../assets/img/test.svg" id="e1" class="svg" alt="test"></td>
-        <td> <img src="../assets/img/e2.svg" id="e2" class="svg" alt="test"></td>
-        <td> <img src="../assets/img/e3.svg" id="e3" class="svg" alt="test"></td>
-        <td> <img src="../assets/img/e4.svg" id="e4" class="svg" alt="test"></td>
-      </tr>
+        <tr>
+          <td>
+            <img src="../assets/img/test.svg" id="e1" class="svg" alt="test" />
+          </td>
+          <td>
+            <img src="../assets/img/e2.svg" id="e2" class="svg" alt="test" />
+          </td>
+          <td>
+            <img src="../assets/img/e3.svg" id="e3" class="svg" alt="test" />
+          </td>
+          <td>
+            <img src="../assets/img/e4.svg" id="e4" class="svg" alt="test" />
+          </td>
+        </tr>
       </tbody>
     </table>
 
     <div class="txt">
-    <h2 class="titre"> La bourse de déchets ? </h2>
+      <h2 class="titre">{{ $t('etapes.titre') }}</h2>
+
 
     <p> Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit,
       sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
       Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+
+      <p>{{ $t('etapes.desrciption') }}</p>
+
+      <button>{{ $t('etapes.btn') }}</button>
+
     </div>
   </div>
 </template>
@@ -32,12 +46,11 @@
 <script>
 export default {
   name: "Etapes",
-}
+};
 </script>
 
 
 <style scoped>
-
 #etape {
   position: relative;
   text-align: center;
@@ -56,15 +69,35 @@ export default {
 
 #etape::before {
   right: -40px;
-  -webkit-mask-image: radial-gradient(circle 25px at 100% 0, transparent 0, transparent 40px, black 11px);
-  mask-image: radial-gradient(circle 25px at 100% 0, transparent 0, transparent 40px, black 11px);
+  -webkit-mask-image: radial-gradient(
+    circle 25px at 100% 0,
+    transparent 0,
+    transparent 40px,
+    black 11px
+  );
+  mask-image: radial-gradient(
+    circle 25px at 100% 0,
+    transparent 0,
+    transparent 40px,
+    black 11px
+  );
   z-index: 0;
 }
 
 #etape::after {
   left: -39.5px;
-  -webkit-mask-image: radial-gradient(circle 25px at 0 0, transparent 0, transparent 40px, black 11px);
-  mask-image: radial-gradient(circle 25px at 0 0, transparent 0, transparent 40px, black 11px);
+  -webkit-mask-image: radial-gradient(
+    circle 25px at 0 0,
+    transparent 0,
+    transparent 40px,
+    black 11px
+  );
+  mask-image: radial-gradient(
+    circle 25px at 0 0,
+    transparent 0,
+    transparent 40px,
+    black 11px
+  );
   z-index: 0;
 }
 
@@ -73,7 +106,7 @@ export default {
 table {
   position: sticky;
   border-radius: 180px 180px 0px 0px;
-  margin:0;
+  margin: 0;
   width: 100%;
   text-align: center;
   padding: 0% 10% 10% 10%;
@@ -81,9 +114,7 @@ table {
   z-index: 1;
 }
 
-
 /* Numéro des étapes */
-
 
 th {
   font-family: NunitoExtraLight;
@@ -93,7 +124,7 @@ th {
 }
 
 .dislexic th {
-  font-family: 'Open-Dyslexic Roman', sans-serif !important;
+  font-family: "Open-Dyslexic Roman", sans-serif !important;
 }
 
 .etp {
@@ -103,13 +134,13 @@ th {
 
 /* Format des images */
 
-.svg{
+.svg {
   width: 145px;
   height: auto;
   margin: 15% 0 0 0;
 }
 
-#e2{
+#e2 {
   width: 100px;
 }
 
@@ -139,9 +170,9 @@ p {
   color: var(--white-wb);
 }
 
-.txt{
+.txt {
   background-color: var(--sombre-wb);
-  box-shadow: 1px 1px 44px 0px rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 44px 0px rgba(0, 0, 0, 0.2);
   border-radius: 100px;
   padding: 10% 0;
   margin-top: 12%;
@@ -155,16 +186,16 @@ button {
   background-color: var(--orange-wb);
   color: white;
   padding: 15px 30px;
-  margin-top : 10%;
+  margin-top: 10%;
   margin-bottom: 10%;
 }
 
-@media screen and (max-width: 1000px){
-  #e1{
+@media screen and (max-width: 1000px) {
+  #e1 {
     width: 90px;
   }
 
-  #e2{
+  #e2 {
     width: 70px;
   }
 
@@ -176,47 +207,45 @@ button {
     width: 80px;
   }
 }
-
-
 
 /* Pour le responsive */
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
+  /* Modification des étapes */
 
-/* Modification des étapes */
+  td {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 35%;
+    padding-bottom: 10%;
+  }
 
-td{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 35%;
-  padding-bottom: 10%;
-}
+  th {
+    width: 100%;
+    padding-bottom: 10%;
+  }
 
-th {
-  width: 100%;
-  padding-bottom: 10%;
-}
+  tbody {
+    padding-left: 10%;
+  }
 
-tbody{
-  padding-left: 10%;
-}
+  table,
+  th {
+    padding-top: 10%;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: center;
+  }
 
-table, th {
-  padding-top: 10%;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  align-items: center;
-}
+  /* Taille des images */
 
-/* Taille des images */
-
-  #e1{
+  #e1 {
     width: 90px;
   }
 
-  #e2{
+  #e2 {
     width: 70px;
   }
 
@@ -227,21 +256,16 @@ table, th {
   #e4 {
     width: 80px;
   }
-
 }
 
-
-@media screen and (max-width: 370px){
-
-
-/* titre */
+@media screen and (max-width: 370px) {
+  /* titre */
 
   h2 {
     font-size: 2em;
   }
 
-
-/* Modification du tableau */
+  /* Modification du tableau */
 
   th {
     width: 100%;
@@ -249,22 +273,20 @@ table, th {
     flex-direction: column;
   }
 
-
-/* Modification du titre */
+  /* Modification du titre */
 
   .titre {
     font-size: 45px;
     line-height: 70px;
   }
 
-  th,p {
+  th,
+  p {
     font-size: 15px;
   }
-
 }
 
-
-@media screen and (max-width: 300px){
+@media screen and (max-width: 300px) {
   tbody {
     display: none;
   }

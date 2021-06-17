@@ -1,4 +1,5 @@
 <template>
+
 <div class="main">
   <h2 class="titre"> Nos catégories </h2>
 <div class="grid">
@@ -13,10 +14,34 @@
 
 </div>
 </div>
+
+  <div class="main">
+    <h2 class="titre">{{ $t("categorie.titre") }}</h2>
+    <div class="grid">
+      <div class="cat">
+        <div class="title">{{ $t("categorie.plastique") }}</div>
+        <div id="plas" class="flou plastique"></div>
+      </div>
+      <div class="cat">
+        <div class="title">{{ $t("categorie.electrique") }}</div>
+        <div id="elec" class="flou electrique"></div>
+      </div>
+      <div class="cat">
+        <div class="title">{{ $t("categorie.recyclable") }}</div>
+        <div id="recy" class="flou recyclage"></div>
+      </div>
+      <div class="cat">
+        <div class="title">{{ $t("categorie.organique") }}</div>
+        <div id="orga" class="flou organique"></div>
+      </div>
+    </div>
+  </div>
+
 </template>
 
 <script>
 export default {
+
 name: "CategoriesFilter",
 
   data() {
@@ -25,10 +50,13 @@ name: "CategoriesFilter",
   }
   },
 }
+=======
+  name: "CategoriesFilter",
+};
+
 </script>
 
 <style scoped>
-
 .main {
   text-align: center;
 }
@@ -55,26 +83,36 @@ name: "CategoriesFilter",
   padding: 10%;
   border: solid 1px white;
   transition: background-color 1s;
+
   z-index: 100;
   background-color: rgba(26,26,26, .3);
+
+  z-index: 1;
+
   position: inherit;
 }
 
 .dislexic .cat > .title {
-  font-family: 'Open-Dyslexic Roman', sans-serif !important;
+  font-family: "Open-Dyslexic Roman", sans-serif !important;
 }
 
 .title:hover,
+
 .flou:hover .title:hover{
   background-color: rgba(242,190,121,.7);
   color: var(--white-hf);
+
+.flou:hover .title:hover {
+  background-color: white;
+  color: var(--orange-wb);
+
 }
 
 .cat {
   grid-column: span 6;
 }
 
-.flou{
+.flou {
   top: 0;
   left: 0;
   position: absolute;
@@ -85,7 +123,6 @@ name: "CategoriesFilter",
   background-position: bottom;
   background-repeat: no-repeat;
   transition: filter 1s;
-  z-index: 0;
 }
 
 .flouter{
@@ -102,40 +139,40 @@ name: "CategoriesFilter",
 #vetement{background-image: url("../assets/img/cat/vetements.jpg") !important;}
 
 
+.flou:hover {
+  filter: blur(6px);
+}
+
 @media screen and (max-width: 990px) {
-  p{
+  p {
     font-size: 25px;
   }
 
-  .cat > .title{
+  .cat > .title {
     font-size: 1em;
   }
 }
 
 @media screen and (max-width: 780px) {
-
   .titre {
     font-size: 3em;
   }
 
-
-  p{
+  p {
     font-size: 15px;
   }
 
-
-  .cat > .title{
-    font-size: .8em;
+  .cat > .title {
+    font-size: 0.6em;
   }
 }
 
 @media screen and (max-width: 575px) {
-
   .grid {
     display: block;
   }
 
-  .cat{
+  .cat {
     margin: 10px 0;
   }
 
@@ -145,10 +182,8 @@ name: "CategoriesFilter",
 }
 
 @media screen and (max-width: 400px) {
-
   .cat > .title {
     font-size: 20px;
   }
 }
-
 </style>

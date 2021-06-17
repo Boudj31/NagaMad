@@ -1,6 +1,8 @@
 <template>
 <div id="listA">
-  <h3 id="titreIntroAnnonce" class="titre" > Trouvez la bonne annonce</h3>
+
+  <h3 id="titreIntroAnnonce" class="titre" >{{ $t('annonces.titre') }}</h3>
+
 
   <div class="mapList">
   <i :class="{'fa fa-globe':checked, 'fa fa-list':!checked} " aria-hidden="true" @click="checked = !checked"></i>
@@ -9,21 +11,21 @@
   </div>
 
   <div class="grille" v-for="(annonce, index) in annonces" :key="index">
-    <h3 class="titleList"> • {{ annonce.title[0].value }} </h3>
-    <img :src= "annonce.field_image[0].url" class="imglist">
+    <h3 class="titleList"> • {{ annonce.title }} </h3>
+    <img :src= "annonce.poster" class="imglist">
 
   <div v-if="checked === false">
     <Brew/>
   </div>
 
-    <p class="Andesc"> {{ annonce.field_content[0].value }}
-      <i class="fas fa-boxes iconA"></i> {{ annonce.field_quantity[0].value }} En stock
+    <p class="Andesc"> {{ annonce.content }}
+      <i class="fas fa-boxes iconA"></i> {{ annonce.quantity }} En stock
       <i class="fas fa-clipboard-list iconA"></i>
     </p>
 
-    <span class="AnDate"> Posté le {{ annonce.created[0].value }} </span>
+    <span class="AnDate"> Posté le {{ annonce.createdAt }} </span>
     <button class="BtnAnnonce">
-      <router-link :to="'/annonce/'+ annonce.nid[0].value">En savoir plus</router-link>
+      <router-link :to="'/annonce/'+ annonce.id">En savoir plus</router-link>
     </button>
   </div>
   <hr>
