@@ -8,7 +8,7 @@
         />
       </div>
       <div class="annonce-content">
-        <strong>Lorem ipsum dolor sit.</strong>
+        <h4 class="lilTitle">Lorem ipsum dolor sit.</h4>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
           deserunt iste quo laudantium corporis neque, rem alias quam incidunt
@@ -24,7 +24,7 @@
         />
       </div>
       <div class="annonce-content">
-        <strong>Lorem ipsum dolor sit.</strong>
+        <h4 class="lilTitle">Lorem ipsum dolor sit.</h4>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
           deserunt iste quo laudantium corporis neque, rem alias quam incidunt
@@ -40,7 +40,7 @@
         />
       </div>
       <div class="annonce-content">
-        <strong>Lorem ipsum dolor sit.</strong>
+        <h4 class="lilTitle">Lorem ipsum dolor sit.</h4>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
           deserunt iste quo laudantium corporis neque, rem alias quam incidunt
@@ -60,12 +60,13 @@ export default {
 <style scoped>
 .search-annonce {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
 }
 
 /* Bloc de Annonce */
 .annonce-box {
   display: flex;
+  flex-flow: column nowrap;
   align-items: center;
   margin-top: 15px;
 }
@@ -85,11 +86,48 @@ export default {
 
 .annonce-box .annonce-icon img {
   width: 50%;
+  height: auto;
   vertical-align: middle;
   border-style: none;
 }
 
 .annonce-box .annonce-content p {
-  width: 70%;
+  max-width: 70%;
+  margin: auto;
+  color: var(--white-hf);
 }
+
+.lilTitle {
+  width: 70%;
+  text-align: center;
+  margin: 3% auto;
+}
+
+.annonce-box{
+  background-color: rgba(0,0,0,0.6);
+  padding: 5% 0;
+}
+
+.annonce-box:first-child{
+  border-radius: 200px 0 0 200px;
+}
+
+.annonce-box:last-child{
+  border-radius: 0 200px 200px 0;
+}
+
+@media (max-width: 727px){
+
+  .search-annonce {
+    flex-flow: row wrap;
+  }
+
+  .annonce-box,
+  .annonce-box:first-child,
+  .annonce-box:last-child{
+    border-radius: 200px;
+  }
+
+}
+
 </style>

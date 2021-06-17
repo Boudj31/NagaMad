@@ -13,7 +13,9 @@
     </section>
     <div class="container">
       <Etapes />
+    </div>
       <CategoriesFilter />
+    <div class="container">
       <AnnonceList :annonces="annonces" />
     </div>
   </div>
@@ -58,6 +60,7 @@ export default {
 </script>
 
 <style scoped>
+
 .search {
   background: url(../assets/img/nbackground.jpg) no-repeat 70% 40%;
   background-size: cover;

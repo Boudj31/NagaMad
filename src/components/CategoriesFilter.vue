@@ -1,4 +1,20 @@
 <template>
+
+<div class="main">
+  <h2 class="titre"> Nos catégories </h2>
+<div class="grid">
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true" >Mobilier</div> <div id="mobilier" :class="{'flou':flou,'flou flouter':!flou}"> </div> </div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Construction</div><div id="construction" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Électronique</div><div id="electro" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Électrique</div><div id="elec" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Bureau</div><div id="bureau" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Bois</div><div id="bois" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Déchets</div><div id="dechet" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Vêtements</div><div id="vetement" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+
+</div>
+</div>
+
   <div class="main">
     <h2 class="titre">{{ $t("categorie.titre") }}</h2>
     <div class="grid">
@@ -20,12 +36,24 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 export default {
+
+name: "CategoriesFilter",
+
+  data() {
+  return{
+   flou: false,
+  }
+  },
+}
+=======
   name: "CategoriesFilter",
 };
+
 </script>
 
 <style scoped>
@@ -35,7 +63,7 @@ export default {
 
 .grid {
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 10px;
 }
@@ -55,7 +83,12 @@ export default {
   padding: 10%;
   border: solid 1px white;
   transition: background-color 1s;
+
+  z-index: 100;
+  background-color: rgba(26,26,26, .3);
+
   z-index: 1;
+
   position: inherit;
 }
 
@@ -64,9 +97,15 @@ export default {
 }
 
 .title:hover,
+
+.flou:hover .title:hover{
+  background-color: rgba(242,190,121,.7);
+  color: var(--white-hf);
+
 .flou:hover .title:hover {
   background-color: white;
   color: var(--orange-wb);
+
 }
 
 .cat {
@@ -86,21 +125,19 @@ export default {
   transition: filter 1s;
 }
 
-.flou.plastique {
-  background-image: url("../assets/img/cat/plastique.jpg") !important;
+.flouter{
+  filter: blur(6px);
 }
 
-.flou.electrique {
-  background-image: url("../assets/img/cat/plastique.jpg") !important;
-}
+#mobilier{background-image: url("../assets/img/cat/mobilier.jpg") !important;}
+#construction {background-image: url("../assets/img/cat/construction.jpg") !important;}
+#elec{background-image: url("../assets/img/cat/electrique.jpg") !important;}
+#electro{background-image: url("../assets/img/cat/electronique.jpg") !important;}
+#bureau{background-image: url("../assets/img/cat/bureau.jpg") !important;}
+#bois{background-image: url("../assets/img/cat/bois.jpg") !important;}
+#dechet{background-image: url("../assets/img/cat/dechets.jpg") !important;}
+#vetement{background-image: url("../assets/img/cat/vetements.jpg") !important;}
 
-.flou.recyclage {
-  background-image: url("../assets/img/cat/plastique.jpg") !important;
-}
-
-.flou.organique {
-  background-image: url("../assets/img/cat/plastique.jpg") !important;
-}
 
 .flou:hover {
   filter: blur(6px);

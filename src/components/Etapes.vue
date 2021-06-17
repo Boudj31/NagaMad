@@ -30,9 +30,15 @@
     <div class="txt">
       <h2 class="titre">{{ $t('etapes.titre') }}</h2>
 
+
+    <p> Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit,
+      sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+
       <p>{{ $t('etapes.desrciption') }}</p>
 
       <button>{{ $t('etapes.btn') }}</button>
+
     </div>
   </div>
 </template>
@@ -153,7 +159,7 @@ th {
 }
 
 h2 {
-  margin: 15% 0 5% 0;
+  margin: 0% 0 5% 0;
 }
 
 p {
@@ -168,6 +174,8 @@ p {
   background-color: var(--sombre-wb);
   box-shadow: 1px 1px 44px 0px rgba(0, 0, 0, 0.2);
   border-radius: 100px;
+  padding: 10% 0;
+  margin-top: 12%;
 }
 
 /* Boutton classique */

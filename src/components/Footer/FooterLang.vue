@@ -97,5 +97,13 @@ export default {
   transition: all 0.3s cubic-bezier(0.25, 1.15, 0.35, 1.15);
   visibility: hidden;
   z-index: 12;
+}
+
 } */
+
+@media screen and (max-width: 478px){
+  .footer-top{
+    justify-content: space-around;
+  }
+  }
 </style>
