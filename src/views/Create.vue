@@ -18,6 +18,31 @@
     <label>Site web</label><br>
        <input type="text" v-model="website"/><br>
 
+
+        <label >Catégorie </label>
+        <select name="" id="categorie" v-model="category">
+          <option value="Categorie">-- Catégorie --</option>
+          <option value="Tous">Tous</option>
+          <option value="Meuble">Meuble</option>
+          <option value="Materiaux">Matériaux de construction</option>
+          <option value="Electronique">Electronique</option>
+          <option value="Electrique">Electrique</option>
+          <option value="Bureau">Bureau</option>
+          <option value="Bois">Bois</option>
+          <option value="Dechet">Dechet</option>
+          <option value="Mobilier">Mobilier</option>
+          <option value="Vetement">Vetement</option>
+        </select><br>
+
+        <label>Quantité</label><br>
+        <input type="text" v-model="quantity"/><br>
+
+        <label>Image</label><br>
+        <input type="text" v-model="poster"/><br>
+
+        <label>Adresse</label><br>
+        <input type="text" v-model="adress"/><br>
+
       </form>
 
     <button  @click.prevent="createNewAnnonce" class="btn btn-success">Add Annonce</button>
@@ -39,7 +64,9 @@ name: "Create",
     phone: '',
     website: '',
     adress: '',
-    category: ''
+    category: '',
+    quantity: '',
+    poster: ''
 
   }
  } ,
@@ -47,53 +74,15 @@ name: "Create",
   methods: {
    async createNewAnnonce() {
       let data = {
-
-        _links: {
-          type: {
-            href: "http://gestdech.com/rest/type/node/annonce",
-          },
-        },
-        type : [
-          {
-            target_id : "annonce"
-          }
-        ],
-        title: [
-          {
-            value: this.title,
-          },
-        ],
-        field_content: [
-          {
-            value: this.content,
-          },
-        ],
-        field_phone: [
-            {
-          value: this.phone,
-            },
-        ],
-        field_mail: [
-          {
-            value: this.mail,
-          },
-        ],
-        field_website: [
-          {
-            value: this.website,
-          },
-        ],
-
+        title: this.title,
+        content: this.content,
+        phone: this.phone,
+        website: this.website,
+        mail: this.mail,
+        adress: this.adress,
+        categorie: this.category
       };
-     const response = await axios.post("http://gestdech.com/node?_format=hal_json", data,
-          {
-            headers: {
-              "Authorization": "Basic TUFEOmRhd2FuMzFA",
-              "Content-Type": "application/hal+json",
-              "X-CSRF-Token": "Qx9O-xm02Y6xsqnZRTKweN2LoUTTM42zlzsSw-LMI-g", // rest/session/token
-            },
-          }
-      );
+     const response = await axios.post("annonces", data,);
      this.title = '';
      console.log(response);
 

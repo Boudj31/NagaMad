@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="[font, mode]">
-    <The-header v-if="urlHeader" :mode="mode" :font="font" :switchTheme="switchTheme" :switchFont="switchFont"></The-header>
+    <The-header v-if="urlHeader" :mode="mode" :font="font" :switchTheme="switchTheme" :switchFont="switchFont"  />
     <TheHeader2 v-else></TheHeader2>
     <div class="content">
       <Router-view></Router-view>
@@ -14,7 +14,7 @@ import "../public/scss/style.css";
 import TheFooter from "./components/Footer/TheFooter.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheHeader2 from "@/components/TheHeader2";
-
+import axios from "axios";
 
 export default {
   name: "App",
@@ -27,9 +27,10 @@ export default {
     return {
       urlHeader: true,
       mode: 'dark',
-      font: ''
+      font: '',
     }
   },
+
   methods: {
     urlDisplay() {
       const currentUrl = window.location.pathname;
@@ -59,11 +60,19 @@ export default {
       }
     }
   },
-  created() {
+  async created() {
+    //user
+    const response = await axios.get('users');
+    //console.log(response.data)
+    this.$store.dispatch('user', response.data['hydra:member']);
+
+    //mode night
     this.urlDisplay();
     this.mode = JSON.parse(localStorage.getItem("currentTheme"));
     this.font = JSON.parse(localStorage.getItem("currentFont"));
+
   },
+
 };
 </script>
 

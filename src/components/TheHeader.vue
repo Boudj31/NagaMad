@@ -25,9 +25,16 @@
             </ul>
           </div>
         </router-link>
+
         <div class="header-right">
           <a href="/login">{{ $t('header.connexion') }}</a>
           <a href="/register" class="btn-signup">{{ $t('header.inscription') }}</a>
+        </div>
+        <div class="header-right" v-if="user">
+
+          <a href="/login" @click="handleClick()">Déconnexion</a>
+          <!-- <router-link :to="{name: 'login'}">Connexion</router-link> -->
+          <!-- <router-link :to="{name: 'register'}" class="btn-signup">Inscription</router-link> -->
         </div>
       </div>
     </div>
@@ -56,13 +63,14 @@
 </template>
 
 <script>
+import  {mapGetters} from 'vuex';
 export default {
   name: "TheHeader",
   props: {
     mode: String,
     font: String,
     switchTheme: { type: Function },
-    switchFont: { type: Function }
+    switchFont: { type: Function },
   },
 
   data() {
@@ -73,6 +81,10 @@ export default {
       lastPositon: 0,
       down: true,
     }
+  },
+
+  computed: {
+    ...mapGetters(['user'])
   },
 
   methods: {
@@ -105,7 +117,13 @@ export default {
         siteHeader.style.position = "relative";
       }
     },
-    
+
+
+    handleClick() {
+      localStorage.removeItem('token');
+      this.$router.push('/');
+    },
+
     downsize(){
       if (window.innerWidth <= 768) {
         this.down = false;

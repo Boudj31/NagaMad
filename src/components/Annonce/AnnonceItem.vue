@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="article">
     <article id="grid" class="annonce">
      <img :src= "ann.field_poster.url" alt="Annonce" />
@@ -39,6 +40,34 @@
       </div>
       <div class="alert" v-else>{{ $t('annonces.alert')}}</div>
     </div>
+  </div>
+</div>
+
+   </article>
+   <div class="block container">
+     <strong><i class="far fa-building"></i> {{ann.website}}</strong>
+     <div class="block-column" v-if="isLogged">
+       <address>
+         <i class="fas fa-map-marker-alt"></i>
+         <p>{{ ann.adress}}</p>
+       </address>
+       <div class="items-article">
+         <i class="far fa-envelope"></i>
+         <div class="link-item">
+           <a :href="'mailto:'+ ann.mail">{{ ann.mail}}</a>
+           <br>
+           <a :href="ann.website" target="_blank">{{ ann.website }}</a>
+         </div>
+       </div>
+       <div class="items-article">
+         <i class="fas fa-phone-alt"></i><br />
+         <a :href="'tel:'+ann.phone ">{{ ann.phone }}</a>
+       </div>
+     </div>
+     <div class="alert" v-else>Veuillez vous connecter</div>
+   </div>
+   -->
+    <h4>{{ ann.content }}</h4>
   </div>
 </template>
 

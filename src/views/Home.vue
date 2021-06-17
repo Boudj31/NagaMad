@@ -25,7 +25,7 @@ import axios from "axios";
 import CategoriesFilter from "@/components/CategoriesFilter";
 import AnnonceList from "@/components/Annonce/AnnonceList";
 
-const apiURL = "http://gestdech.com/api/annonces";
+//const apiURL = "http://127.0.0.1:8000/api/annonces";
 
 export default {
   components: { CategoriesFilter, Etapes, AnnonceList },
@@ -41,13 +41,13 @@ export default {
   methods: {
     getAnnonce() {
       axios
-        .get(apiURL)
-        .then((res) => {
-          this.annonces = res.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+          .get('annonces')
+          .then((res) => {
+            this.annonces = res.data['hydra:member'];
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     },
   },
 

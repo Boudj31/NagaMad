@@ -14,6 +14,7 @@
         </div>
 
     <div class="form">
+
       <label>{{ $t('login.id')}}</label>
       <input type="text" placeholder="Enter Email" v-model="email">
       <a> {{ $t('login.id-oublie')}}</a>
@@ -42,13 +43,14 @@
 
 <script>
 import axios from "axios";
-const apiURL = "http://gestdech.com/api/users";
+//const apiURL = "http://127.0.0.1:8000/api/login";
+
 
 export default {
   name: "User",
   data() {
     return{
-      email: '',
+      username: '',
       password: '',
     }
 
@@ -57,19 +59,16 @@ export default {
 
    async handleSubmit() {
       const data = {
-        email: this.email,
+        username: this.username,
         password: this.password
       };
-    await axios.post(apiURL, data)
-      .then(
-          res => {
-         console.log(res)
-          }
-      ).catch(
-          err => {
-            console.log(err)
-          }
-      )
+
+   const response =  await axios.post('login', data);
+    console.log(response);
+    localStorage.setItem('token', response.data.token);
+    await this.$store.dispatch('user', response.data.user)
+    this.$router.push('/profil');
+
     }
   }
 }
