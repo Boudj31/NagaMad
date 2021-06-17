@@ -1,6 +1,6 @@
 <template>
 <div id="listA">
-  <h3 id="titreIntroAnnonce" class="titre" > Trouver la bonne annonce</h3>
+  <h3 id="titreIntroAnnonce" class="titre" >{{ $t('annonces.titre') }}</h3>
 
   <div class="mapList">
   <i :class="{'fa fa-globe':checked, 'fa fa-list':!checked} " aria-hidden="true" @click="checked = !checked"></i>

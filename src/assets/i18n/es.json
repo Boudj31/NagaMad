@@ -8,8 +8,27 @@
         "contacts": "Contacto",
         "qsn": "¿Quiénes somos nosotros?"
     },
-    "Home": {
+    "home": {
         "hero-title": "Valorizar tus residuos",
         "hero-description": "Cake cupcake croissant gummies biscuit sesame snaps. M arshmallow pudding lemon drops chocolate bar soufflé gummies croissant. Chocolate bar donut caramels tiramisu topping brownie apple pie brownie. Pie topping sesame snaps caramels cake danish jelly beans bear claw fruitcake."
+    },
+    "categorie": {
+        "titre": "Nuestras categorias",
+        "plastique": "plástico",
+        "electrique": "eléctrico",
+        "recyclable": "reciclable",
+        "organique": "orgánico"
+    },
+    "etapes": {
+        "1": "Regístrese o inicie sesión. ",
+        "2": "Busque o publique su anuncio. ",
+        "3": "Toma contacto. ",
+        "4": "¡Toma o dona tus desechos! ",
+        "titre": "La bolsa de basura?  ",
+        "desrciption": "Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+        "btn-title": "Más información "
+    },
+    "annonces": {
+        "titre": "Encuentra el anuncio adecuado"
     }
 }

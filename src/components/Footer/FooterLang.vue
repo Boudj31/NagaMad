@@ -26,7 +26,7 @@ export default {
     name: 'FooterLang',
     data() {
       return {
-        lang: localStorage.getItem('lang')
+        lang: localStorage.getItem('lang') || 'fr',
       }
     },
     methods: {

@@ -11,5 +11,24 @@
     "Home": {
         "hero-title": "Valorisez vos déchets",
         "hero-description": "Cake cupcake croissant gummies biscuit sesame snaps. M arshmallow pudding lemon drops chocolate bar soufflé gummies croissant. Chocolate bar donut caramels tiramisu topping brownie apple pie brownie. Pie topping sesame snaps caramels cake danish jelly beans bear claw fruitcake."
+    },
+    "categorie": {
+        "titre": "Nos catégorie",
+        "plastique": "plastique",
+        "electrique": "électrique",
+        "recyclable": "recyclable",
+        "organique": "organique"
+    },
+    "etapes": {
+        "1": "Inscrivez-vous ou connectez-vous.",
+        "2": "Recherchez ou Postez votre annonce.",
+        "3": "Prenez Contact.",
+        "4": "Prenez ou Donnez vos Déchets !",
+        "titre": "La bourse de déchets ? ",
+        "desrciption": "Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+        "btn-title": "En savoir plus"
+    },
+    "annonces": {
+        "titre": "Trouver la bonne annonce"
     }
 }
