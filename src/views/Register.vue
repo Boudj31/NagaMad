@@ -246,7 +246,7 @@ export default {
 
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 930px) {
 
   .hautDePage{
     margin: 28% 0 20% 0;

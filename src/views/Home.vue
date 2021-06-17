@@ -1,24 +1,21 @@
 <template>
   <div class="main">
     <section class="search">
-
       <div class="container">
-        <h1>Valorisez vos déchets</h1>
-      <p> Cake cupcake croissant gummies biscuit sesame snaps. M
-        arshmallow pudding lemon drops chocolate bar soufflé gummies croissant.
-        Chocolate bar donut caramels tiramisu topping brownie apple pie brownie.
-        Pie topping sesame snaps caramels cake danish jelly beans bear claw fruitcake.</p>
+        <h1>{{ $t('home.hero-title') }}</h1>
+        <p>{{ $t('home.hero-description') }}</p>
         <form>
           <button class="btn">
-            <router-link to="result" >Voir les annonces</router-link>
+            <router-link to="result">Voir les annonces</router-link>
           </button>
         </form>
-
       </div>
     </section>
     <div class="container">
       <Etapes />
+    </div>
       <CategoriesFilter />
+    <div class="container">
       <AnnonceList :annonces="annonces" />
     </div>
   </div>
@@ -33,15 +30,13 @@ import AnnonceList from "@/components/Annonce/AnnonceList";
 //const apiURL = "http://127.0.0.1:8000/api/annonces";
 
 export default {
-
-  components: {CategoriesFilter, Etapes, AnnonceList },
+  components: { CategoriesFilter, Etapes, AnnonceList },
   name: "Home",
   data() {
     return {
       annonces: "",
       search: "",
       genreFilter: "",
-
     };
   },
 
@@ -61,14 +56,12 @@ export default {
   created() {
     this.getAnnonce();
   },
-}
+};
 </script>
 
 <style scoped>
 
-
-
-  .search {
+.search {
   background: url(../assets/img/nbackground.jpg) no-repeat 70% 40%;
   background-size: cover;
   width: 100%;
@@ -88,7 +81,7 @@ export default {
   margin: 30px;
 }
 
-.container p{
+.container p {
   color: white;
   font-size: 20px;
   font-weight: 300;
@@ -123,7 +116,8 @@ form input {
 
 select {
   vertical-align: middle;
-  background: var(--white-wb) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
+  background: var(--white-wb) url("../assets/chevron-down-solid.svg") no-repeat
+    right 8% center;
   background-size: 5%;
   appearance: none;
 }
@@ -155,33 +149,29 @@ form select {
   font-size: 15px;
 }*/
 
-
-
 .dislexic form input,
 .dislexic form select {
-  font-family: 'Open-Dyslexic Roman', sans-serif !important;
+  font-family: "Open-Dyslexic Roman", sans-serif !important;
 }
 
-  @media only screen and (max-width: 768px){
-
-    h1, h2,h3, .titre {
-      font-size: 3em;
-      width: 100%;
-    }
-
-    .search p {
-      margin-top: 10%;
-      font-size: 1em;
-    }
-
+@media only screen and (max-width: 768px) {
+  h1,
+  h2,
+  h3,
+  .titre {
+    font-size: 3em;
+    width: 100%;
   }
 
-
-  @media only screen and (max-width: 490px){
-    .container h1 {
-      margin-top: 20%;
-    }
-
+  .search p {
+    margin-top: 10%;
+    font-size: 1em;
   }
+}
 
+@media only screen and (max-width: 490px) {
+  .container h1 {
+    margin-top: 20%;
+  }
+}
 </style>

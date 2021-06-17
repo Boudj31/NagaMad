@@ -25,10 +25,10 @@
             </ul>
           </div>
         </router-link>
-        <div class="header-right" v-if="!user">
 
-          <a href="/login">Connexion</a>
-          <a href="/register" class="btn-signup">Inscription</a>
+        <div class="header-right">
+          <a href="/login">{{ $t('header.connexion') }}</a>
+          <a href="/register" class="btn-signup">{{ $t('header.inscription') }}</a>
         </div>
         <div class="header-right" v-if="user">
 
@@ -38,22 +38,32 @@
         </div>
       </div>
     </div>
-    <div class="header-bottom">
+
+    <div class="header-bottom" >
+      <i :class="{'fa fa-chevron-circle-down arrow-down':down, 'fa fa-chevron-circle-down arrow-up':!down }"
+         id="menu-button" aria-hidden="true"  @click="down = !down" ></i>
+
       <div class="container">
         <i class="fa fa-chevron-circle-down" id="menu-button" aria-hidden="true" @click="down = !down"></i>
         <nav class="site-nav">
           <ul v-if="down === true" class="menu">
             <li  class="menu-item">
-              <router-link to="/">Accueil</router-link>
+              <router-link to="/">{{ $t('header.accueil') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/result">Annonces</router-link>
+              <router-link to="/result">{{ $t('header.annonces') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/contacts">Contacts</router-link>
+              <router-link to="/contacts">{{ $t('header.contacts') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/annonce/1">Qui-Sommes-Nous ?</router-link>
+              <router-link to="/annonce/1">{{ $t('header.qsn') }}</router-link>
+            </li>
+            <li class="menu-item mobile">
+              <a href="/login">Connexion</a>
+            </li>
+            <li class="menu-item mobile">
+              <a href="/register" class="btn-signup">Inscription</a>
             </li>
           </ul>
         </nav>
@@ -80,6 +90,7 @@ export default {
       scrolled: false,
       lastPositon: 0,
       down: true,
+      up: false,
     }
   },
 
@@ -109,13 +120,45 @@ export default {
         siteTopbar.style.position = "fixed";
         siteTopbar2.style.transform = "translateY(-105px)";
         siteHeader.style.position = "fixed";
+
+        siteTopbar.style.zIndex = "10";
+
+        if(window.innerWidth <= 768){
+          siteTopbar2.style.transform = "translateY(-135px)";
+          siteTopbar2.style.position = "fixed";
+        }
+      }
+      else {
         siteTopbar.style.zIndex = "90";
-      } else {
         siteTopbar.style.position = "relative";
         siteTopbar2.style.transform = "translateY(0px)";
+        siteTopbar2.style.position = "relative";
         siteTopbar.style.zIndex = "10";
         siteHeader.style.position = "relative";
+        if(window.innerWidth <= 768){
+          siteTopbar2.style.transform = "translateY(0px)";
+          siteTopbar2.style.position = "relative";
+          siteHeader.style.transform= "translateY(0px)";
+        }
       }
+
+    },
+
+    responsiveDown(){
+      if(window.innerWidth < 768){
+        this.down = false;
+      }
+
+      if(window.innerWidth > 768) {
+        this.down = true;
+      }
+      return;
+    },
+
+
+    reverseDown(){
+      if(window.innerWidth <= 768 ) {
+        this.down = false;}
     },
 
 
@@ -123,6 +166,7 @@ export default {
       localStorage.removeItem('token');
       this.$router.push('/');
     },
+
 
     downsize(){
       if (window.innerWidth <= 768) {
@@ -134,17 +178,30 @@ export default {
       console.log(this.down);
     },
   },
-  
+
+
   created() {
     this.downsize();
     window.addEventListener("scroll", this.menuScroll);
+
+    window.addEventListener("resize", this.responsiveDown);
+    document.addEventListener("DOMContentLoaded", this.reverseDown);
+
     window.addEventListener("resize", this.downsize);
+
   },
 
   destroyed() {
     window.addEventListener("scroll", this.menuScroll);
+
+    window.addEventListener("resize", this.responsiveDown);
+    document.addEventListener("DOMContentLoaded", this.reverseDown);
+
     window.addEventListener("resize", this.downsize);
+
   },
+
+
 };
 
 
@@ -180,6 +237,7 @@ export default {
   padding-bottom: 1.5rem;
   transition: display .3s ease-in-out;
   z-index: 12;
+  width: 100%;
 }
 
 /*==== Header left ====*/
@@ -379,11 +437,21 @@ export default {
   font-family: 'Open-Dyslexic Roman', sans-serif !important;
 }
 
+.mobile {
+  display: none;
+}
+
 @media only screen and (max-width: 768px){
+
+  .headroom{
+    position: sticky;
+    width: 100%;
+  }
+
   .header-bottom .site-nav .menu{
     text-align: center;
     flex-direction: column;
-    height: 50vh;
+    height: 100vh;
     width: 100%;
   }
 
@@ -402,14 +470,13 @@ export default {
     font-size: 30px;
   }
 
-  #menu-button:after,
-  #menu-button:visited{
+
+  .arrow-down{
     transform: rotate(180deg);
   }
 
-  #menu-button:active,
-  #menu-button:before{
-    transform: rotate(-180deg);
+  .arrow-up{
+    transform: rotate(0deg);
   }
 
   .header-right{
@@ -430,6 +497,16 @@ export default {
 
   .header-right a {
     font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 478px){
+  .mobile {
+    display: block;
+  }
+
+  .header-right{
+    display: none;
   }
 }
 

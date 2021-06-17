@@ -1,0 +1,44 @@
+{
+    "web-title": "Naga Wasted",
+    "header": {
+        "connexion": "Log in",
+        "inscription": "Sign in",
+        "accueil": "Home",
+        "annonces": "Announce",
+        "contacts": "Touch",
+        "qsn": "Who are we ?"
+    },
+    "home": {
+        "hero-title": "Recover your waste",
+        "hero-description": "Cake cupcake croissant gummies biscuit sesame snaps. M arshmallow pudding lemon drops chocolate bar soufflé gummies croissant. Chocolate bar donut caramels tiramisu topping brownie apple pie brownie. Pie topping sesame snaps caramels cake danish jelly beans bear claw fruitcake."
+    },
+    "categorie": {
+        "titre": "Our category",
+        "plastique": "plastic",
+        "electrique": "electric",
+        "recyclable": "recyclable",
+        "organique": "organic"
+    },
+    "etapes": {
+        "1": "Register or log in.",
+        "2": "Search or Post your ad.",
+        "3": "Take Contact.",
+        "4": "Take or Donate Your Waste! ",
+        "titre": "The waste exchange ?",
+        "desrciption": "Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+        "btn-title": "Find out more "
+    },
+    "annonces": {
+        "titre": "Find the right ad",
+        "alert": "Please log in"
+    },
+    "login": {
+        "title": "Log in",
+        "inscription": "Sign in",
+        "mdp-oublie": "Forgot password ?",
+        "id-oublie": "Forgot email ?",
+        "mdp": "Password",
+        "id": "Email address",
+        "id-placeholder": "Email address"
+    }
+}
