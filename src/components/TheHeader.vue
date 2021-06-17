@@ -25,10 +25,10 @@
             </ul>
           </div>
         </router-link>
-        <div class="header-right" v-if="!user">
 
-          <a href="/login">Connexion</a>
-          <a href="/register" class="btn-signup">Inscription</a>
+        <div class="header-right">
+          <a href="/login">{{ $t('header.connexion') }}</a>
+          <a href="/register" class="btn-signup">{{ $t('header.inscription') }}</a>
         </div>
         <div class="header-right" v-if="user">
 
@@ -44,16 +44,16 @@
         <nav class="site-nav">
           <ul v-if="down === true" class="menu">
             <li  class="menu-item">
-              <router-link to="/">Accueil</router-link>
+              <router-link to="/">{{ $t('header.accueil') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/result">Annonces</router-link>
+              <router-link to="/result">{{ $t('header.annonces') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/contacts">Contacts</router-link>
+              <router-link to="/contacts">{{ $t('header.contacts') }}</router-link>
             </li>
             <li class="menu-item">
-              <router-link to="/annonce/1">Qui-Sommes-Nous ?</router-link>
+              <router-link to="/annonce/1">{{ $t('header.qsn') }}</router-link>
             </li>
           </ul>
         </nav>

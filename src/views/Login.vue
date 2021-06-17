@@ -10,24 +10,25 @@
 
       <div class="hautDePage">
           <img id="logo" src="../assets/logo.svg" alt="Logo" />
-          <h1 class="titre"> Connexion </h1>
+          <h1 class="titre"> {{ $t('login.title')}} </h1>
         </div>
 
     <div class="form">
-      <label>Identifiant</label>
-      <input type="text" placeholder="Enter Email" v-model="username">
-      <a> Identifiant oublié ?</a>
 
-      <label>Mot De Passe</label>
+      <label>{{ $t('login.id')}}</label>
+      <input type="text" placeholder="Enter Email" v-model="email">
+      <a> {{ $t('login.id-oublie')}}</a>
+
+      <label>{{ $t('login.mdp')}}</label>
       <input type="password" placeholder="Enter Password" v-model="password">
-      <a> Mot de passe oublié ?</a>
+      <a>{{ $t('login.mdp-oublie')}}</a>
 
-      <button type="submit" class="registerbtn">Login</button>
+      <button type="submit" class="registerbtn">{{ $t('login.title')}}</button>
     </div>
     </div>
 
     <div class="container signin">
-      <p class="regis"><router-link :to="{name: 'register'}">S'inscrire</router-link></p>
+      <p class="regis"><router-link :to="{name: 'register'}">{{ $t('login.inscription')}}</router-link></p>
 
       <ul class="footer-form-list">
         <li>Nos Autres Services</li>
