@@ -77,4 +77,11 @@ export default {
   visibility: hidden;
   z-index: 12;
 }
+
+@media screen and (max-width: 478px){
+  .footer-top{
+    justify-content: space-around;
+  }
+
+}
 </style>

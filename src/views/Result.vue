@@ -110,7 +110,7 @@ export default {
 
 <style scoped>
 .search {
-  background: url(../assets/img/background.jpg) no-repeat;
+  background: url(../assets/img/annonces/arbre.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 40%;
   width: 100%;
@@ -120,17 +120,17 @@ export default {
 h1 {
   text-align: start;
   font-size: 50px;
+  text-align: center;
+  margin-bottom: 10%;
 }
 
 /* Bloc de Formulaire */
 form {
-  background-color: var(--white-wb);
-  border-radius: 0px;
+  background-color: var(--sombre-wb);
+  border-radius: 100px;
+  padding: 2%;
   padding: 20px 50px;
   transform: translateY(50%);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.20), 
-              0 -15px 0 -5px rgba(255, 255, 255, 0.86), 0 -16px 1px -5px rgba(0,0,0,0.20), 
-              0 -32px 0 -12px rgba(255, 255, 255, 0.7), 0 -33px 1px -12px rgba(0,0,0,0.20);
 }
 
 .form-control {
@@ -148,6 +148,7 @@ form {
   width: 20%;
   flex: 0 0 20%;
 }
+
 
 .form-icon {
   position: absolute;
@@ -176,19 +177,21 @@ input[type="search"] {
 select {
   width: 100%;
   padding-left: 50px;
-  /* border-radius: 10px 0 0 10px; */
   vertical-align: middle;
-  background: var(--white) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
+  background: var(--sombre-wb) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
   background-size: 5%;
   appearance: none;
   transform: translateX(1px);
+  color: var(--white-wb);
+  border-radius: 100px 0 0 100px;
 }
 
 input[type="search"] {
   width: 100%;
   padding-left: 60px;
-  /* border-radius: 0 10px 10px 0; */
+  border-radius: 0 100px 100px 0;
   outline: none;
+  background: var(--sombre-wb);
 }
 
 #voirAnnonce {
@@ -218,6 +221,13 @@ input[type="search"] {
     transform: translateY(1px);
     background-size: 3%;
     background-position: right 3% center;
+    border-radius: 25px 25px 0 0;
+    border-bottom: none;
+  }
+
+  input[type="search"] {
+    border-radius: 0 0 25px 25px;
+    border-top: none;
   }
 
   .icon-list {
@@ -231,5 +241,6 @@ input[type="search"] {
   .annonce-box .annonce-content p {
     width: 100%;
   }
+
 }
 </style>

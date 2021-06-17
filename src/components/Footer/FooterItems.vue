@@ -8,20 +8,22 @@
         harum vero quis, mollitia odio! Dolor ipsa itaque aspernatur nemo esse.
       </p>
     </div>
+
     <div class="footer-column">
-      <div class="footer-title">Plus sur Naga</div>
+      <div class="footer-title"> Liens </div>
       <ul>
-        <li>Lorem ipsum dolor sit amet consectetur.</li>
-        <li>Lorem ipsum dolor sit amet consectetur.</li>
-        <li>Lorem ipsum dolor sit amet consectetur.</li>
+      <li> Accueil </li>
+      <li> Annonces </li>
+      <li> Nous Contacter </li>
       </ul>
+
     </div>
+
     <div class="footer-column">
-      <div class="footer-title">Nous contacter</div>
+      <div class="footer-title"> Compte </div>
       <ul>
-        <li>Lorem ipsum dolor sit amet consectetur.</li>
-        <li>Lorem ipsum dolor sit amet consectetur.</li>
-        <li>Lorem ipsum dolor sit amet consectetur.</li>
+        <li> Se Connecter </li>
+        <li> S'inscrire </li>
       </ul>
     </div>
   </div>
@@ -37,15 +39,22 @@ export default {
 .footer-columns {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer-column:first-child {
-  width: 550px;
+  width: 45%;
+}
+
+.footer-column:last-child,
+.footer-column:nth-child(2)
+{
+  width: 25%;
 }
 
 .footer-column p,
 .footer-column ul {
-  margin-top: 20px;
+  margin-top: 15%;
 }
 
 .footer-column ul li {
@@ -59,5 +68,20 @@ export default {
   text-align: center;
   padding: 20px 0;
   width: 100%;
+}
+
+@media screen and (max-width: 478px){
+
+  .footer-columns{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column:first-child,
+  .footer-column:nth-child(2),
+  .footer-column:last-child{
+    width: 80%;
+  }
+
 }
 </style>
