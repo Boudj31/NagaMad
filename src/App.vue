@@ -38,7 +38,8 @@ export default {
       }
       return this.urlHeader = true;
     },
-    switchTheme() { // Fonction darkMode
+    switchTheme(event) { // Fonction darkMode
+      event.preventDefault();
       if (this.mode === 'dark') {
         this.mode = 'light';
         localStorage.setItem("currentTheme", JSON.stringify(this.mode));
@@ -47,7 +48,8 @@ export default {
         localStorage.setItem("currentTheme", JSON.stringify(this.mode));
       }
     },
-    switchFont() { // Fonction Open Dyslexic
+    switchFont(event) { // Fonction Open Dyslexic
+      event.preventDefault();
       if (this.font === 'dislexic') {
         this.font = '';
         localStorage.setItem("currentFont", JSON.stringify(this.font));
