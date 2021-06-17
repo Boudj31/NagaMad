@@ -35,7 +35,7 @@
 
 <script>
 import AnnonceList from "../components/Annonce/AnnonceList"
-const apiURL = "http://127.0.0.1:8000/api/annonces";
+//const apiURL = "http://127.0.0.1:8000/api/annonces";
 import axios from 'axios';
 
 export default {
@@ -51,7 +51,7 @@ export default {
   methods: {
     getAnnonce() {
       axios
-          .get(apiURL)
+          .get('annonces')
           .then((res) => {
             this.annonces = res.data['hydra:member'];
             console.log(res.data['hydra:member']);
@@ -63,7 +63,6 @@ export default {
     }
 
   },
-  //helloooo
   computed: {
     filterAnnonce() {
       let annonceAll = [...this.annonces];

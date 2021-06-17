@@ -26,7 +26,7 @@ import axios from "axios";
 import CategoriesFilter from "@/components/CategoriesFilter";
 import AnnonceList from "@/components/Annonce/AnnonceList";
 
-const apiURL = "http://127.0.0.1:8000/api/annonces";
+//const apiURL = "http://127.0.0.1:8000/api/annonces";
 
 export default {
 
@@ -44,7 +44,7 @@ export default {
   methods: {
     getAnnonce() {
       axios
-          .get(apiURL)
+          .get('annonces')
           .then((res) => {
             this.annonces = res.data['hydra:member'];
           })

@@ -15,7 +15,7 @@
 
     <div class="form">
       <label>Identifiant</label>
-      <input type="text" placeholder="Enter Email" v-model="email">
+      <input type="text" placeholder="Enter Email" v-model="username">
       <a> Identifiant oublié ?</a>
 
       <label>Mot De Passe</label>
@@ -42,14 +42,14 @@
 
 <script>
 import axios from "axios";
-const apiURL = "http://gestdech.com/user/login?";
+//const apiURL = "http://127.0.0.1:8000/api/login";
 
 
 export default {
   name: "User",
   data() {
     return{
-      email: '',
+      username: '',
       password: '',
     }
 
@@ -58,20 +58,14 @@ export default {
 
    async handleSubmit() {
       const data = {
-        email: this.email,
+        username: this.username,
         password: this.password
       };
-   const response =  await axios.post(apiURL, data, {
-     headers: {
-       "Accept": 'application/hal+json',
-       "Authorization": "Basic TUFEOmRhd2FuMzFA",
-       "Content-Type": "application/hal+json",
-       "X-CSRF-Token": "Qx9O-xm02Y6xsqnZRTKweN2LoUTTM42zlzsSw-LMI-g",
-     },
-   });
+
+   const response =  await axios.post('login', data);
     console.log(response);
-    localStorage.setItem('http://gestdech.com/rest/session/token', response.data.token);
-    this.$store.dispatch('user', response.data.user)
+    localStorage.setItem('token', response.data.token);
+    await this.$store.dispatch('user', response.data.user)
     this.$router.push('/profil');
 
     }

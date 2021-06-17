@@ -82,7 +82,7 @@ name: "Create",
         adress: this.adress,
         categorie: this.category
       };
-     const response = await axios.post("http://127.0.0.1:8000/api/annonces", data,);
+     const response = await axios.post("annonces", data,);
      this.title = '';
      console.log(response);
 

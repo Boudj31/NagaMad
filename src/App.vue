@@ -15,8 +15,6 @@ import TheFooter from "./components/Footer/TheFooter.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheHeader2 from "@/components/TheHeader2";
 import axios from "axios";
-const apiURL = "http://gestdech.com/api/users";
-
 
 export default {
   name: "App",
@@ -62,12 +60,10 @@ export default {
   },
   async created() {
     //user
-    const response = await axios.get(apiURL, {
-      headers: {
-        Authorization: 'Bearer' + localStorage.getItem("http://gestdech.com/rest/session/token")
-      }
-    });
-    this.$store.dispatch('user', response.data);
+    const response = await axios.get('users');
+    //console.log(response.data)
+    this.$store.dispatch('user', response.data['hydra:member']);
+
     //mode night
     this.urlDisplay();
     this.mode = JSON.parse(localStorage.getItem("currentTheme"));

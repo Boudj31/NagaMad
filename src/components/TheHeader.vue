@@ -98,7 +98,7 @@ export default {
     },
 
     handleClick() {
-      localStorage.removeItem('http://gestdech.com/rest/session/token');
+      localStorage.removeItem('token');
       this.$router.push('/');
     },
 
