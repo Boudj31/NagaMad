@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'headroom--unpinned':scrolled}" v-on="handleScroll()" class="site-header headroom header">
+  <header class="site-header headroom header">
     <div class="header-top">
       <div class="container flex">
         <router-link to="/" class="site-logo">
@@ -29,8 +29,6 @@
 
           <a href="/login">Connexion</a>
           <a href="/register" class="btn-signup">Inscription</a>
-          <!-- <router-link :to="{name: 'login'}">Connexion</router-link> -->
-          <!-- <router-link :to="{name: 'register'}" class="btn-signup">Inscription</router-link> -->
         </div>
         <div class="header-right" v-if="user">
 
@@ -42,9 +40,10 @@
     </div>
     <div class="header-bottom">
       <div class="container">
+        <i class="fa fa-chevron-circle-down" id="menu-button" aria-hidden="true" @click="down = !down"></i>
         <nav class="site-nav">
-          <ul class="menu">
-            <li class="menu-item">
+          <ul v-if="down === true" class="menu">
+            <li  class="menu-item">
               <router-link to="/">Accueil</router-link>
             </li>
             <li class="menu-item">
@@ -73,12 +72,14 @@ export default {
     switchTheme: { type: Function },
     switchFont: { type: Function },
   },
+
   data() {
     return {
       darkMode: false,
       limitPosition: 250,
       scrolled: false,
       lastPositon: 0,
+      down: true,
     }
   },
 
@@ -87,30 +88,67 @@ export default {
   },
 
   methods: {
-    handleScroll(){
-      if(this.lastPositon < window.scrollY && this.limitPosition < window.scrollY){
-        this.scrolled = true;
+    // handleScroll(){
+    //   if(this.lastPositon < window.scrollY && this.limitPosition < window.scrollY){
+    //     this.scrolled = true;
+    //   }
+    //   if(this.lastPositon > window.scrollY){
+    //     this.scrolled = false;
+    //   }
+    //   this.lastPositon = window.scrollY;
+    // },
+
+    /* Mettre la topbar en fixed
+    /* ---------------------------------------------------------- */
+    menuScroll() {
+      const siteHeader = document.querySelector('.header');
+      const siteTopbar = document.querySelector('.header-bottom');
+      const siteTopbar2 = document.querySelector('.header-top');
+
+      if (window.scrollY > 105) {
+        siteTopbar.style.position = "fixed";
+        siteTopbar2.style.transform = "translateY(-105px)";
+        siteHeader.style.position = "fixed";
+        siteTopbar.style.zIndex = "90";
+      } else {
+        siteTopbar.style.position = "relative";
+        siteTopbar2.style.transform = "translateY(0px)";
+        siteTopbar.style.zIndex = "10";
+        siteHeader.style.position = "relative";
       }
-      if(this.lastPositon > window.scrollY){
-        this.scrolled = false;
-      }
-      this.lastPositon = window.scrollY;
     },
+
 
     handleClick() {
       localStorage.removeItem('token');
       this.$router.push('/');
     },
 
-    created() {
-      window.addEventListener("scroll", this.handleScroll).console.log(this.scrolled);
+    downsize(){
+      if (window.innerWidth <= 768) {
+        this.down = false;
+      } else {
+        this.down = true;
+      }
+      // console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
+      console.log(this.down);
     },
+  },
+  
+  created() {
+    this.downsize();
+    window.addEventListener("scroll", this.menuScroll);
+    window.addEventListener("resize", this.downsize);
+  },
 
-    destroyed() {
-      window.removeEventListener("scroll", this.handleScroll)
-    },
-  }
+  destroyed() {
+    window.addEventListener("scroll", this.menuScroll);
+    window.addEventListener("resize", this.downsize);
+  },
 };
+
+
+
 </script>
 
 <style>
@@ -122,13 +160,14 @@ export default {
   left: 0; */
   display: flex;
   flex-direction: column;
-  color: var(--white);
+  color: var(--white-hf);
   width: 100%;
   z-index: 10;
   transition: all 300ms ease-in-out;
 }
 
 .flex {
+  flex-wrap: wrap;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -136,9 +175,11 @@ export default {
 
 .site-header .header-top {
   position: relative;
-  background: var(--primary);
+  background: var(--grisclair-hf);
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  transition: display .3s ease-in-out;
+  z-index: 12;
 }
 
 /*==== Header left ====*/
@@ -172,7 +213,7 @@ export default {
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background-color: var(--tertiary);
+  background-color: var(--sombre-hf);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +236,7 @@ export default {
   width: 105px;
   padding: 13px 0;
   font-size: 20px;
-  background-color: var(--white);
+  background-color: var(--white-hf);
   border-radius: 8px;
   color: var(--dark);
   top: 80%;
@@ -218,13 +259,13 @@ export default {
   right: auto;
   top: -20%;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid var(--white);
+  border-bottom: 10px solid var(--white-hf);
   border-left: 10px solid transparent;
 }
 
 /*==== Header Right ====*/
 .header-right .btn-signup {
-  background-color: var(--yellow);
+  background-color: var(--orange-hf);
   padding: 10px 30px;
   margin-left: 120px;
   border-radius: 10px;
@@ -237,14 +278,23 @@ export default {
 }
 
 .header-right .btn-signup:hover {
-  background-color: var(--yellow-hover);
+  background-color: var(--orange-hover-hf);
+}
+
+#menu-button{
+  display: none;
+  transition-duration: .5s;
 }
 
 /*==== Header Right ====*/
 .site-header .header-bottom {
-  background: var(--secondary);
+  position: relative;
+  width: 100%;
+  background: var(--beige-hf);
   padding-top: .8rem;
   padding-bottom: .8rem;
+  z-index: 10;
+  transition: all .5s;
 }
 
 .menu {
@@ -260,7 +310,7 @@ export default {
   z-index: 1;
   padding: 1%;
   font-family: NunitoLight;
-  color: var(--sombre);
+  color: var(--sombre-hf);
   margin: 5% 10% 5% 0;
 }
 
@@ -294,7 +344,7 @@ export default {
   height: 1px;
   content: '.';
   color: transparent;
-  background: var(--grisclair);
+  background: var(--grisclair-hf);
   opacity: 0;
   z-index: -1;
   padding: 15px;
@@ -307,7 +357,7 @@ export default {
 }
 
 .header{
-  position: sticky;
+  position: relative;
 }
 
 .headroom{
@@ -327,6 +377,60 @@ export default {
 .dislexic .header-right,
 .dislexic .menu > .menu-item {
   font-family: 'Open-Dyslexic Roman', sans-serif !important;
+}
+
+@media only screen and (max-width: 768px){
+  .header-bottom .site-nav .menu{
+    text-align: center;
+    flex-direction: column;
+    height: 50vh;
+    width: 100%;
+  }
+
+  .header-top .flex {
+    flex-direction: column;
+  }
+
+  .header-bottom .site-nav .menu li{
+    margin-right: 0;
+    width: 100%;
+  }
+
+  #menu-button{
+    display: block;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  #menu-button:after,
+  #menu-button:visited{
+    transform: rotate(180deg);
+  }
+
+  #menu-button:active,
+  #menu-button:before{
+    transform: rotate(-180deg);
+  }
+
+  .header-right{
+   margin-top: -2%;
+  }
+
+  .site-logo strong{
+    display: none;
+  }
+
+  .site-logo{
+    margin-bottom: 5%;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .header-right a {
+    font-size: 1em;
+  }
 }
 
 </style>

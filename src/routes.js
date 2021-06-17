@@ -6,7 +6,8 @@ import Register from "@/views/Register";
 import Annonce from './views/Annonce'
 import Result from './views/Result';
 import Create from "@/views/Create";
-import Profil from "@/views/Profil";
+
+import Profile from "./views/Profile";
 
 Vue.use(VueRouter);
 
@@ -18,8 +19,8 @@ const router = new VueRouter({
         {path: '/result', name: "result", component: Result},
         {path: '/register', name: "register", component: Register},
         {path: '/new', name: "new", component: Create},
-        {path: '/profil', name: "profil", component: Profil},
         {path: '/annonce/:idAnnonce', props: true,  name: 'annonce', component: Annonce},
+        {path: '/profile', name: 'profile', component: Profile}
     ]
 })
 

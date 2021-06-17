@@ -145,32 +145,54 @@ p {
 }
 
 #app {
- --grisfonce : #70665A;
- --grisclair: #BDAC97;
- --beige : #F0DBC0;
- --marron : #705838;
- --orange : #F2BE79;
- --sombre : #1a1a1a;
- --white: #FFF;
-  font-family: NunitoBlack, NunitoBold, NunitoRegular, NunitoLight, NunitoExtraLight, Ubuntu;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "Ubuntu", sans-serif;
-  background-color: var(--tertiary);
-  color: var(--secondary);
-  overflow: hidden;
-  min-height: 100vh;
-  display: grid;
-  grid:
-    "header" auto
-    "content" 1fr
-    "footer" auto /
-    auto;
+  /* Couleur du site */
+ --grisfonce-wb : #70665A;
+ --grisclair-wb: #BDAC97;
+ --beige-wb : #F0DBC0;
+ --marron-wb : #705838;
+ --orange-wb : #F2BE79;
+ --sombre-wb : #1a1a1a;
+ --white-wb: #FFF;
+
+/* Couleur Header & Footer */
+--white-hf: #FFF;
+--grisclair-hf: #BDAC97;
+--beige-hf: #F0DBC0;
+--orange-hf: #F2BE79;
+--orange-hover-hf: #D1A366;
+--sombre-hf : #1a1a1a;
+
+
+/* Image Home */
+--background-home: url(/img/background.jpg);
+
+font-family: NunitoBlack, NunitoBold, NunitoRegular, NunitoLight, NunitoExtraLight, Ubuntu;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+font-family: "Ubuntu", sans-serif;
+background-color: var(--sombre-wb);
+color: var(--secondary);
+overflow: hidden;
+min-height: 100vh;
+display: grid;
+grid:
+  "header" auto
+  "content" 1fr
+  "footer" auto /
+  auto;
 }
 
 .light {
-  --sombre : #fff !important;
-  --white: #1a1a1a !important;
+  /* Couleur du site */
+  --beige-wb : #F2BE79 !important;
+  --sombre-wb : #FFF !important;
+  --white-wb: #1A1A1A !important;
+
+  --background-home: url(/img/background-ligth.jpg);
+}
+
+.light .titre {
+  color: var(--orange-wb) !important;
 }
 
 .dislexic,
@@ -181,15 +203,52 @@ p {
 
 .content {
   grid-area: content;
-  /* margin-top: 180px; */
+  /* margin-top: 154px; */
 }
 
 button {
   border: none;
   border-radius: 15px;
-  background-color: var(--orange);
+  background-color: var(--orange-hf);
   color: white;
   padding: 1%;
   margin: 5%;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1098px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    max-width: 800px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media only screen and (max-width: 668px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 505px) {
+  .container {
+    max-width: 450px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    max-width: 400px;
+  }
 }
 </style>

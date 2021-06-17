@@ -1,15 +1,19 @@
 <template>
   <div class="main">
     <section class="search">
+
       <div class="container">
-
         <h1>Valorisez vos déchets</h1>
-
+      <p> Cake cupcake croissant gummies biscuit sesame snaps. M
+        arshmallow pudding lemon drops chocolate bar soufflé gummies croissant.
+        Chocolate bar donut caramels tiramisu topping brownie apple pie brownie.
+        Pie topping sesame snaps caramels cake danish jelly beans bear claw fruitcake.</p>
         <form>
           <button class="btn">
             <router-link to="result" >Voir les annonces</router-link>
           </button>
         </form>
+
       </div>
     </section>
     <div class="container">
@@ -61,19 +65,37 @@ export default {
 </script>
 
 <style scoped>
-.search {
-  background: url(../assets/img/background.jpg) no-repeat;
+
+
+
+  .search {
+  background: url(../assets/img/nbackground.jpg) no-repeat 70% 40%;
   background-size: cover;
-  background-position: 50% 40%;
   width: 100%;
   padding: 65px 0;
   position: relative;
+}
+
+.light .search {
+  background: url(../assets/img/background-ligth.jpg) no-repeat;
+  background-size: cover;
+  background-position: bottom center;
 }
 
 .search p {
   text-align: center;
   font-size: 30px;
   margin: 30px;
+}
+
+.container p{
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: left;
+  margin-top: 8%;
+  width: 75%;
+  margin-left: 12%;
 }
 
 h1 {
@@ -88,11 +110,11 @@ form {
   margin-bottom: 90px;
 }
 
-.form-control {
+/*.form-control {
   display: flex;
   width: 50%;
   margin-bottom: 20px;
-}
+}*/
 
 form input {
   width: 60%;
@@ -101,7 +123,7 @@ form input {
 
 select {
   vertical-align: middle;
-  background: var(--white) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
+  background: var(--white-wb) url("../assets/chevron-down-solid.svg") no-repeat right 8% center;
   background-size: 5%;
   appearance: none;
 }
@@ -119,7 +141,7 @@ form select {
 
 .btn {
   border-radius: 13px;
-  background-color: var(--orange);
+  background-color: var(--orange-hf);
   border: none;
   color: var(--white);
   padding: 15px 30px;
@@ -127,15 +149,39 @@ form select {
   margin-bottom: 90px;
 }
 
-#voirAnnonce {
+/*#voirAnnonce {
   padding: 1.5% 5% 1.5% 5%;
   font-family: NunitoRegular;
   font-size: 15px;
-}
+}*/
+
+
 
 .dislexic form input,
-.dislexic form select
-.dislexic #voirAnnonce {
+.dislexic form select {
   font-family: 'Open-Dyslexic Roman', sans-serif !important;
 }
+
+  @media only screen and (max-width: 768px){
+
+    h1, h2,h3, .titre {
+      font-size: 3em;
+      width: 100%;
+    }
+
+    .search p {
+      margin-top: 10%;
+      font-size: 1em;
+    }
+
+  }
+
+
+  @media only screen and (max-width: 490px){
+    .container h1 {
+      margin-top: 20%;
+    }
+
+  }
+
 </style>

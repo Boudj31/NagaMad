@@ -122,6 +122,7 @@ label {
 
 .regis{
   padding-bottom: 2%;
+
 }
 
 
@@ -165,7 +166,6 @@ hr {
   margin: auto;
   border: none;
   cursor: pointer;
-  width: 20%;
   opacity: 0.9;
   box-shadow:  0px 5px 7px rgba(0, 0, 0, .20);
 }
@@ -184,6 +184,7 @@ a {
 .signin {
   text-align: center;
   margin-top: 2%;
+  z-index: 3;
 }
 
 /*  Placement des nuages */
@@ -244,6 +245,106 @@ a {
   padding-left: 10%;
   padding-top: 2%;
   font-family: NunitoLight;
+}
+
+
+@media screen and (max-width: 770px){
+
+  .form > a[data-v-26084dc2] {
+    font-size: 14px;
+  }
+
+
+ #nuage1{
+   width: 70%;
+   left: -45%;
+ }
+
+ #nuage2{
+   top : 60%;
+   width: 80%;
+   left: -30%;
+ }
+
+ #nuage4{
+   width: 80%;
+   top: 5%;
+   left: 80%;
+ }
+
+ #nuage5{
+   top: -30%;
+ }
+
+}
+
+@media screen and (max-width: 480px) {
+
+ .hautDePage > h1 {
+    font-size: 3em;
+  }
+
+  .form li, .form label, .form button {
+    font-size: 1em;
+  }
+
+  .form a{
+    font-size: .8em;
+    margin: 1% 0% 10% 10%;
+  }
+
+  .form button {
+    margin: 0;
+    padding: 20px 50px;
+
+  }
+
+ #logo{
+   width: 30%;
+   margin-top: 15%;
+ }
+
+ .form input{
+   width: 100%;
+ }
+
+ .footer-form-list li{
+   font-size: .8em;
+   padding: 0;
+   margin-right: 10%;
+   margin-top: 5%;
+ }
+
+ #nuage1{
+   width: 80%;
+   top: -10%;
+   left: -60%;
+ }
+
+ #nuage2{
+   top: 25%;
+   width: 100%;
+   left: -60%;
+ }
+
+ #nuage3{
+   width: 100%;
+   left: -40%;
+   top: 80%;
+ }
+
+  #nuage4{
+    width: 100%;
+    right: -10%;
+    top: 50%;
+  }
+
+  #nuage5{
+    width: 100%;
+    left: 80%;
+    top: 0%;
+  }
+
 }
 
 </style>
