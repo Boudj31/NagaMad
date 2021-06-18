@@ -14,10 +14,14 @@
     },
     "categorie": {
         "titre": "Nuestras categorias",
-        "plastique": "plástico",
-        "electrique": "eléctrico",
-        "recyclable": "reciclable",
-        "organique": "orgánico"
+        "mobilier": "Mobiliario",
+        "construction": "Construction",
+        "electronique": "Electrónico",
+        "electrique": "Eléctrico",
+        "bureau": "Estudio",
+        "bois": "Madera",
+        "dechets": "Residuos",
+        "vetements": "Ropa"
     },
     "etapes": {
         "1": "Regístrese o inicie sesión. ",

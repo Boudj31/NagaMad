@@ -3,39 +3,17 @@
 <div class="main">
   <h2 class="titre"> Nos catégories </h2>
 <div class="grid">
-  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true" >Mobilier</div> <div id="mobilier" :class="{'flou':flou,'flou flouter':!flou}"> </div> </div>
-  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Construction</div><div id="construction" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
-  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Électronique</div><div id="electro" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
-  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Électrique</div><div id="elec" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
-  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Bureau</div><div id="bureau" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
-  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Bois</div><div id="bois" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
-  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Déchets</div><div id="dechet" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
-  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">Vêtements</div><div id="vetement" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true" >{{ $t('categorie.mobilier') }}</div> <div id="mobilier" :class="{'flou':flou,'flou flouter':!flou}"> </div> </div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">{{ $t('categorie.construction') }}</div><div id="construction" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">{{ $t('categorie.electronique') }}</div><div id="electro" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">{{ $t('categorie.electrique') }}</div><div id="elec" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">{{ $t('categorie.bureau') }}</div><div id="bureau" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">{{ $t('categorie.bois') }}</div><div id="bois" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">{{ $t('categorie.dechets') }}</div><div id="dechet" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
+  <div class="cat"> <div class="title" @mouseover="flou=false" @mouseleave="flou=true">{{ $t('categorie.vetements') }}</div><div id="vetement" :class="{'flou':flou,'flou flouter':!flou}"></div></div>
 
 </div>
 </div>
-
-  <div class="main">
-    <h2 class="titre">{{ $t("categorie.titre") }}</h2>
-    <div class="grid">
-      <div class="cat">
-        <div class="title">{{ $t("categorie.plastique") }}</div>
-        <div id="plas" class="flou plastique"></div>
-      </div>
-      <div class="cat">
-        <div class="title">{{ $t("categorie.electrique") }}</div>
-        <div id="elec" class="flou electrique"></div>
-      </div>
-      <div class="cat">
-        <div class="title">{{ $t("categorie.recyclable") }}</div>
-        <div id="recy" class="flou recyclage"></div>
-      </div>
-      <div class="cat">
-        <div class="title">{{ $t("categorie.organique") }}</div>
-        <div id="orga" class="flou organique"></div>
-      </div>
-    </div>
-  </div>
 
 </template>
 
@@ -50,10 +28,6 @@ name: "CategoriesFilter",
   }
   },
 }
-=======
-  name: "CategoriesFilter",
-};
-
 </script>
 
 <style scoped>
@@ -101,6 +75,7 @@ name: "CategoriesFilter",
 .flou:hover .title:hover{
   background-color: rgba(242,190,121,.7);
   color: var(--white-hf);
+}
 
 .flou:hover .title:hover {
   background-color: white;

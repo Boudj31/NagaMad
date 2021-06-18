@@ -1,9 +1,10 @@
 
 import Vue from 'vue';
-import axios from "axios";
+// import axios from "axios";
 import App from './App.vue';
 import router from './routes';
 import i18n from './i18n';
+import store from './vuex';
 import 'leaflet/dist/leaflet.css';
 
 

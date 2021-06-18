@@ -1,5 +1,4 @@
 <template>
-  <div>
   <div class="article">
     <article id="grid" class="annonce">
      <img :src= "ann.field_poster.url" alt="Annonce" />
@@ -18,32 +17,6 @@
         </div>
       </div>
     </article>
-    <div class="block container">
-      <strong><i class="far fa-building"></i> Raykon</strong>
-      <div class="block-column" v-if="isLogged">
-        <address>
-          <i class="fas fa-map-marker-alt"></i>
-          <p>{{ ann.field_adress[0].value }}</p>
-        </address>
-        <div class="items-article">
-          <i class="far fa-envelope"></i>
-          <div class="link-item">
-            <a :href="'mailto:'+ ann.field_mail[0].value">{{ ann.field_mail[0].value }}</a>
-            <br>
-            <a :href="ann.field_website[0].value" target="_blank">{{ ann.field_website[0].value }}</a>
-          </div>
-        </div>
-        <div class="items-article">
-          <i class="fas fa-phone-alt"></i><br />
-          <a :href="'tel:'+ann.field_phone[0].value ">{{ ann.field_phone[0].value }}</a>
-        </div>
-      </div>
-      <div class="alert" v-else>{{ $t('annonces.alert')}}</div>
-    </div>
-  </div>
-</div>
-
-   </article>
    <div class="block container">
      <strong><i class="far fa-building"></i> {{ann.website}}</strong>
      <div class="block-column" v-if="isLogged">
@@ -64,18 +37,16 @@
          <a :href="'tel:'+ann.phone ">{{ ann.phone }}</a>
        </div>
      </div>
-     <div class="alert" v-else>Veuillez vous connecter</div>
+     <div class="alert" v-else>{{ $t('annonces.alert')}}</div>
    </div>
-   -->
     <h4>{{ ann.content }}</h4>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "AnnonceItem",
-  props: ['ann'],
+  props: ["ann"],
   data() {
     return {
       isLogged: true,
@@ -156,5 +127,4 @@ address,
   justify-content: space-between;
   margin: 60px 0;
 }
-
 </style>
