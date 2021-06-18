@@ -1,6 +1,6 @@
 <template>
   <main>
-    <Annonce-item v-for="(ann, index) in annonce" :key="index" :ann="ann" />
+    <Annonce-item :ann="annonce" />
   </main>
 </template>
 

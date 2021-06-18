@@ -163,7 +163,9 @@ export default {
 
     handleClick() {
       localStorage.removeItem('token');
+      localStorage.removeItem('userId');
       this.$router.push('/');
+      window.location.reload();
     },
 
 

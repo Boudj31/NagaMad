@@ -15,6 +15,7 @@ import TheFooter from "./components/Footer/TheFooter.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheHeader2 from "@/components/TheHeader2";
 import axios from "axios";
+import {mapGetters} from "vuex";
 
 export default {
   name: "App",
@@ -60,11 +61,14 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters(['user'])
+  },
   async created() {
     //user
-    const response = await axios.get('users');
+    const response = await axios.get('users' + '/' + localStorage.getItem('userId'));
     //console.log(response.data)
-    this.$store.dispatch('user', response.data['hydra:member']);
+    this.$store.dispatch('user', response.data);
 
     //mode night
     this.urlDisplay();

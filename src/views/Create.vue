@@ -2,7 +2,7 @@
   <div class="container">
     <h1 style="font-size: 40px">Cree une nouvelle anonce ici</h1> <br><br>
 
-      <form class="form-control">
+      <form class="form-control" @submit="createNewAnnonce">
       <label>Titre</label><br>
       <input type="text" v-model="title"/><br>
 
@@ -43,9 +43,8 @@
         <label>Adresse</label><br>
         <input type="text" v-model="adress"/><br>
 
+        <button type="submit">Add Annonce</button>
       </form>
-
-    <button  @click.prevent="createNewAnnonce" class="btn btn-success">Add Annonce</button>
   </div>
 
 
@@ -83,7 +82,7 @@ name: "Create",
         categorie: this.category
       };
      const response = await axios.post("annonces", data,);
-     this.title = '';
+     this.$router.push('profile');
      console.log(response);
 
 

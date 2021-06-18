@@ -1,18 +1,18 @@
 <template>
   <div class="article">
     <article id="grid" class="annonce">
-      <img :src= "ann.field_poster" alt="Annonce" />
+      <img :src= "ann.poster" alt="Annonce" />
       <div class="overlay">
-        <h4>{{ ann.title[0].value }}</h4>
-        <p>{{ ann.field_content[0].value }}</p>
+        <h4>{{ ann.title}}</h4>
+        <p>{{ ann.content}}</p>
         <div class="overlay-items">
           <div class="items-article items-width">
             <i class="fas fa-clipboard-list"></i>
-            <strong>{{ ann.field_category[0].value }}</strong>
+            <strong>{{ ann.categorie}}</strong>
           </div>
           <div class="items-article items-width">
             <i class="fas fa-boxes"></i>
-            <p>{{ ann.field_quantity[0].value }} Pièces en stock</p>
+            <p>{{ ann.quantity }} Pièces en stock</p>
           </div>
         </div>
       </div>
@@ -38,20 +38,34 @@
         </div>
       </div>
       <div class="alert" v-else>{{ $t('annonces.alert')}}</div>
+      <button v-on:click.prevent="deleteAnnonce">X</button>
+      <button>Modifier</button>
     </div>
-    <h4>dsvnozbnvoebv</h4>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "AnnonceItem",
   props: ["ann"],
   data() {
     return {
       isLogged: true,
+      isAdminOrAuthor: false
     };
   },
+  methods: {
+    async deleteAnnonce () {
+      const response = await axios.delete('annonces' + '/' + this.ann.id);
+      this.$router.push('/profile');
+      window.location.reload();
+
+      console.log(response);
+    }
+  }
+
 };
 </script>
 

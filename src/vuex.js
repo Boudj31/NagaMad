@@ -4,7 +4,7 @@ import VueX from 'vuex';
 Vue.use(VueX);
 
 const state = {
-    user: null
+    user: [],
 };
 
 const store = new VueX.Store({
@@ -22,7 +22,7 @@ const store = new VueX.Store({
     mutations: {
         user(state, user){
           state.user = user
-}
+       }
     }
 
 });
