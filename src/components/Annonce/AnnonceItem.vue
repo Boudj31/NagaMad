@@ -1,57 +1,71 @@
 <template>
   <div class="article">
     <article id="grid" class="annonce">
-      <img :src= "ann.field_poster" alt="Annonce" />
+      <img :src= "ann.poster" alt="Annonce" />
       <div class="overlay">
-        <h4>{{ ann.title[0].value }}</h4>
-        <p>{{ ann.field_content[0].value }}</p>
+        <h4>{{ ann.title}}</h4>
+        <p>{{ ann.content}}</p>
         <div class="overlay-items">
           <div class="items-article items-width">
             <i class="fas fa-clipboard-list"></i>
-            <strong>{{ ann.field_category[0].value }}</strong>
+            <strong>{{ ann.categorie}}</strong>
           </div>
           <div class="items-article items-width">
             <i class="fas fa-boxes"></i>
-            <p>{{ ann.field_quantity[0].value }} Pièces en stock</p>
+            <p>{{ ann.quantity }} Pièces en stock</p>
           </div>
         </div>
       </div>
     </article>
-   <div class="block container">
-     <strong><i class="far fa-building"></i> {{ann.website}}</strong>
-     <div class="block-column" v-if="isLogged">
-       <address>
-         <i class="fas fa-map-marker-alt"></i>
-         <p>{{ ann.adress}}</p>
-       </address>
-       <div class="items-article">
-         <i class="far fa-envelope"></i>
-         <div class="link-item">
-           <a :href="'mailto:'+ ann.mail">{{ ann.mail}}</a>
-           <br>
-           <a :href="ann.website" target="_blank">{{ ann.website }}</a>
-         </div>
-       </div>
-       <div class="items-article">
-         <i class="fas fa-phone-alt"></i><br />
-         <a :href="'tel:'+ann.phone ">{{ ann.phone }}</a>
-       </div>
-     </div>
-     <div class="alert" v-else>{{ $t('annonces.alert')}}</div>
-   </div>
-    <h4>{{ ann.content }}</h4>
+    <div class="block container">
+      <strong><i class="far fa-building"></i> {{ann.website}}</strong>
+      <div class="block-column" v-if="isLogged">
+        <address>
+          <i class="fas fa-map-marker-alt"></i>
+          <p>{{ ann.adress}}</p>
+        </address>
+        <div class="items-article">
+          <i class="far fa-envelope"></i>
+          <div class="link-item">
+            <a :href="'mailto:'+ ann.mail">{{ ann.mail}}</a>
+            <br>
+            <a :href="ann.website" target="_blank">{{ ann.website }}</a>
+          </div>
+        </div>
+        <div class="items-article">
+          <i class="fas fa-phone-alt"></i><br />
+          <a :href="'tel:'+ann.phone ">{{ ann.phone }}</a>
+        </div>
+      </div>
+      <div class="alert" v-else>{{ $t('annonces.alert')}}</div>
+      <button v-on:click.prevent="deleteAnnonce">X</button>
+      <button>Modifier</button>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "AnnonceItem",
   props: ["ann"],
   data() {
     return {
       isLogged: true,
+      isAdminOrAuthor: false
     };
   },
+  methods: {
+    async deleteAnnonce () {
+      const response = await axios.delete('annonces' + '/' + this.ann.id);
+      this.$router.push('/profile');
+      window.location.reload();
+
+      console.log(response);
+    }
+  }
+
 };
 </script>
 

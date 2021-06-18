@@ -1,22 +1,36 @@
 <template>
-<main>
+<main v-if="user">
   <div class="pic-profile">
     <div class="name">
     <i class="fa fa-building" aria-hidden="true"></i>
-    <h1 class="titre"> Raykon </h1>
+    <h1 class="titre"> {{ user.username }} </h1>
     </div>
   </div>
+  <button>
+    <router-link :to="'/new'">Nouvelle annonce</router-link>
+  </button>
   <div class="coor">
     <ul>
-      <li> <i class="fa fa-phone" aria-hidden="true"></i> 06 06 06 06 06  </li>
-      <li> <i class="fa fa-envelope" aria-hidden="true"></i> contact@raykon.com </li>
+      <li> <i class="fa fa-phone" aria-hidden="true"></i> {{ user.phone }}  </li>
+      <li> <i class="fa fa-envelope" aria-hidden="true"></i> {{ user.email }} </li>
       <li> <i class="fa fa-location-arrow" aria-hidden="true"></i> 5 rue de blala <br> 000000 Nullepart </li>
     </ul>
   </div>
 
   <h2 class="titre"> Toutes les annonces </h2>
 
-  <div class="annonces">
+  <div v-for="(ann, i) in user.annonces" :key="i" class="annonces">
+    <div class="card-annonce">
+      <img src="../assets/img/cat/plastique.jpg">
+      <h3> {{ ann.title }}</h3>
+      <p> {{ ann.content }}</p>
+      <p> {{ ann.quantity }}</p>
+      <button>
+        <router-link :to="'/annonce/'+ ann.id">En savoir plus</router-link>
+       <!-- <router-link :to="{name: 'annonce' + '/' + ann.id, params: { annonceID: ann.id}}">En savoir plus</router-link> -->
+      </button>
+    </div>
+<!--
     <div class="card-annonce">
       <img src="../assets/img/cat/plastique.jpg">
       <h3> Titre annnonce</h3>
@@ -37,13 +51,7 @@
       <p> Description</p>
       <p> Stock</p>
     </div>
-
-    <div class="card-annonce">
-      <img src="../assets/img/cat/plastique.jpg">
-      <h3> Titre annnonce</h3>
-      <p> Description</p>
-      <p> Stock</p>
-    </div>
+    -->
 
   </div>
 
@@ -55,12 +63,16 @@ import {mapGetters} from "vuex";
 
 export default {
   name: "Profile",
+  data() {
+    return {
+      fistname: '',
+      lastname: ''
+    }
+  },
   computed: {
     ...mapGetters(['user'])
-  },
-  created() {
-    console.log(this.user);
   }
+
 }
 </script>
 

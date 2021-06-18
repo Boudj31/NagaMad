@@ -52,6 +52,7 @@ export default {
     return{
       username: '',
       password: '',
+      userId: ''
     }
 
   },
@@ -60,14 +61,18 @@ export default {
    async handleSubmit() {
       const data = {
         username: this.username,
-        password: this.password
+        password: this.password,
       };
 
    const response =  await axios.post('login', data);
-    console.log(response);
-    localStorage.setItem('token', response.data.token);
-    await this.$store.dispatch('user', response.data.user)
-    this.$router.push('/profile');
+   console.log(response);
+   localStorage.setItem('token', response.data.token);
+   localStorage.setItem('userId', response.data.data.id);
+
+   await this.$store.dispatch('user', response.data['hydra:member'])
+   //  await this.$store.dispatch('userId', response.data.id)
+     this.$router.push('/profile');
+   window.location.reload();
 
     }
   }

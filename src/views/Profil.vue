@@ -12,7 +12,7 @@ import {mapGetters} from 'vuex'
 export default {
   name: "Profil",
   computed: {
-    ...mapGetters(['user'])
+    ...mapGetters(['user']
   },
   created() {
     console.log(this.user);

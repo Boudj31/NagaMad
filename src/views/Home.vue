@@ -15,9 +15,11 @@
       <Etapes />
     </div>
       <CategoriesFilter />
+    <!--
     <div class="container">
       <AnnonceList :annonces="annonces" />
     </div>
+    -->
   </div>
 </template>
 
@@ -25,12 +27,12 @@
 import Etapes from "../components/Etapes.vue";
 import axios from "axios";
 import CategoriesFilter from "@/components/CategoriesFilter";
-import AnnonceList from "@/components/Annonce/AnnonceList";
+//import AnnonceList from "@/components/Annonce/AnnonceList";
 
 //const apiURL = "http://127.0.0.1:8000/api/annonces";
 
 export default {
-  components: { CategoriesFilter, Etapes, AnnonceList },
+  components: { CategoriesFilter, Etapes },
   name: "Home",
   data() {
     return {
