@@ -14,10 +14,14 @@
     },
     "categorie": {
         "titre": "Nos catégorie",
-        "plastique": "plastique",
+        "mobilier": "Mobilier",
+        "construction": "Construction",
+        "electronique": "électronique",
         "electrique": "électrique",
-        "recyclable": "recyclable",
-        "organique": "organique"
+        "bureau": "Bureau",
+        "bois": "Bois",
+        "dechets": "Déchets",
+        "vetements": "vêtements"
     },
     "etapes": {
         "1": "Inscrivez-vous ou connectez-vous.",
