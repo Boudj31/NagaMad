@@ -14,10 +14,14 @@
     },
     "categorie": {
         "titre": "Our category",
-        "plastique": "plastic",
-        "electrique": "electric",
-        "recyclable": "recyclable",
-        "organique": "organic"
+        "mobilier": "Mobilier",
+        "construction": "Building",
+        "electronique": "Electronic",
+        "electrique": "Electric",
+        "bureau": "Desk",
+        "bois": "Wood",
+        "dechets": "Waste",
+        "vetements": "Clothes"
     },
     "etapes": {
         "1": "Register or log in.",
